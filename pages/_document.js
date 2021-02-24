@@ -8,6 +8,9 @@ export default class MyDocument extends Document {
       // eslint-disable-next-line react/jsx-props-no-spreading
       sheet.collectStyles(<App {...props} />)
     );
+
+    const styleTags = sheet.getStyleTags();
+    return { ...page, styleTags };
   }
 
   render() {

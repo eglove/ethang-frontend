@@ -25,10 +25,19 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env.local
+../ethang-backend/.env
 .env.development.local
 .env.test.local
 .env.production.local
 
 # vercel
 .vercel
+node_modules/
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.log
+package-lock.json
+coverage/

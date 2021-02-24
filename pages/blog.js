@@ -1,9 +1,9 @@
-function Portfolio() {
+function Blog() {
   return (
     <div>
-      <p>Portfolio</p>
+      <p>Blog</p>
     </div>
   );
 }
 
-export default Portfolio;
+export default Blog;
