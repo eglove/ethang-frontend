@@ -12,12 +12,17 @@ union UserAuthenticationWithPasswordResult = UserAuthenticationWithPasswordFailu
 " A keystone list "
 type Blog {
     author: User
+    content: Blog_content_DocumentField
     created: String
     id: ID!
     image: Image
     summary: String
     title: String
     updated: String
+}
+
+type Blog_content_DocumentField {
+    document(hydrateRelationships: Boolean! = false): JSON!
 }
 
 type CloudinaryImage_File {
@@ -201,13 +206,17 @@ type Mutation {
 " A keystone list "
 type Project {
     created: String
-    description: String
+    description: Project_description_DocumentField
     githubLink: String
     id: ID!
     image: Image
     liveLink: String
     name: String
     updated: String
+}
+
+type Project_description_DocumentField {
+    document(hydrateRelationships: Boolean! = false): JSON!
 }
 
 type Query {
@@ -517,8 +526,6 @@ enum SortLogosBy {
 enum SortProjectsBy {
     created_ASC
     created_DESC
-    description_ASC
-    description_DESC
     githubLink_ASC
     githubLink_DESC
     id_ASC
@@ -556,6 +563,7 @@ enum SortUsersBy {
 
 input BlogCreateInput {
     author: UserRelateToOneInput
+    content: JSON
     created: String
     image: ImageRelateToOneInput
     summary: String
@@ -572,6 +580,7 @@ input BlogRelateToManyInput {
 
 input BlogUpdateInput {
     author: UserRelateToOneInput
+    content: JSON
     created: String
     image: ImageRelateToOneInput
     summary: String
@@ -953,7 +962,7 @@ input LogosUpdateInput {
 
 input ProjectCreateInput {
     created: String
-    description: String
+    description: JSON
     githubLink: String
     image: ImageRelateToOneInput
     liveLink: String
@@ -970,7 +979,7 @@ input ProjectRelateToManyInput {
 
 input ProjectUpdateInput {
     created: String
-    description: String
+    description: JSON
     githubLink: String
     image: ImageRelateToOneInput
     liveLink: String
@@ -989,24 +998,6 @@ input ProjectWhereInput {
     created_lte: String
     created_not: String
     created_not_in: [String]
-    description: String
-    description_contains: String
-    description_contains_i: String
-    description_ends_with: String
-    description_ends_with_i: String
-    description_i: String
-    description_in: [String]
-    description_not: String
-    description_not_contains: String
-    description_not_contains_i: String
-    description_not_ends_with: String
-    description_not_ends_with_i: String
-    description_not_i: String
-    description_not_in: [String]
-    description_not_starts_with: String
-    description_not_starts_with_i: String
-    description_starts_with: String
-    description_starts_with_i: String
     githubLink: String
     githubLink_contains: String
     githubLink_contains_i: String

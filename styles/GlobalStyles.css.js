@@ -75,7 +75,7 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.875rem;
   }
   
-  body {
+  body, p {
     margin: 1rem 0;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -94,6 +94,6 @@ export const GlobalStyles = createGlobalStyle`
 export const ContentVisibility = styled.div`
   /* stylelint-disable */
   content-visibility: auto;
-  contain-intrinsic-size: 1000px 1000px;
+  contain-intrinsic-size: 0 100vh;
   /* stylelint-enable */
 `;

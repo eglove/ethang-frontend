@@ -607,6 +607,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@keystone-next/document-renderer@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@keystone-next/document-renderer/-/document-renderer-2.0.0.tgz#5d0d18514247f86f60ecf70d46338c6d4d20c927"
+  integrity sha512-VoOdfKS2DtH4wlO2jKkvk146RnnSu+jza1b+2MO164bHiFUVSM6P43aaOPwLjx9tGHRYReAWaaK0og0GMq5L8A==
+
 "@next/env@10.0.7":
   version "10.0.7"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.7.tgz#7b3e87a9029ca37491e2ec25c27593f0906725f9"
