@@ -1,4 +1,4 @@
-function RecommendedCourses() {
+function RecommendedCoursesPage() {
   return (
     <div>
       <p>RecommendedCourses</p>
@@ -6,4 +6,4 @@ function RecommendedCourses() {
   );
 }
 
-export default RecommendedCourses;
+export default RecommendedCoursesPage;

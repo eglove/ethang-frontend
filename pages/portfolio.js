@@ -1,4 +1,4 @@
-function Portfolio() {
+function PortfolioPage() {
   return (
     <div>
       <p>Portfolio</p>
@@ -6,4 +6,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default PortfolioPage;

@@ -1,0 +1,1260 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+union AuthenticatedItem = User
+
+union UserAuthenticationWithPasswordResult = UserAuthenticationWithPasswordFailure | UserAuthenticationWithPasswordSuccess
+
+" A keystone list "
+type Blog {
+    author: User
+    created: String
+    id: ID!
+    image: Image
+    summary: String
+    title: String
+    updated: String
+}
+
+type CloudinaryImage_File {
+    encoding: String
+    filename: String
+    id: ID
+    mimetype: String
+    originalFilename: String
+    path: String
+    publicUrl: String
+    publicUrlTransformed(transformation: CloudinaryImageFormat): String
+}
+
+" A keystone list "
+type Course {
+    id: ID!
+    logo: Logo
+    title: String
+}
+
+" A keystone list "
+type Image {
+    _blogMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortBlogsBy!], where: BlogWhereInput): _QueryMeta
+    _projectMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortProjectsBy!], where: ProjectWhereInput): _QueryMeta
+    alt: String
+    blog(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortBlogsBy!], where: BlogWhereInput): [Blog!]!
+    id: ID!
+    image: CloudinaryImage_File
+    name: String
+    project(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortProjectsBy!], where: ProjectWhereInput): [Project!]!
+}
+
+type KeystoneAdminMeta {
+    enableSessionItem: Boolean!
+    enableSignout: Boolean!
+    list(key: String!): KeystoneAdminUIListMeta
+    lists: [KeystoneAdminUIListMeta!]!
+}
+
+type KeystoneAdminUIFieldMeta {
+    createView: KeystoneAdminUIFieldMetaCreateView!
+    customViewsIndex: Int
+    fieldMeta: JSON
+    isOrderable: Boolean!
+    itemView(id: ID!): KeystoneAdminUIFieldMetaItemView
+    label: String!
+    listView: KeystoneAdminUIFieldMetaListView!
+    path: String!
+    viewsIndex: Int!
+}
+
+type KeystoneAdminUIFieldMetaCreateView {
+    fieldMode: KeystoneAdminUIFieldMetaCreateViewFieldMode!
+}
+
+type KeystoneAdminUIFieldMetaItemView {
+    fieldMode: KeystoneAdminUIFieldMetaItemViewFieldMode!
+}
+
+type KeystoneAdminUIFieldMetaListView {
+    fieldMode: KeystoneAdminUIFieldMetaListViewFieldMode!
+}
+
+type KeystoneAdminUIListMeta {
+    description: String
+    fields: [KeystoneAdminUIFieldMeta!]!
+    hideCreate: Boolean!
+    hideDelete: Boolean!
+    initialColumns: [String!]!
+    initialSort: KeystoneAdminUISort
+    isHidden: Boolean!
+    itemQueryName: String!
+    key: String!
+    label: String!
+    labelField: String!
+    listQueryName: String!
+    pageSize: Int!
+    path: String!
+    plural: String!
+    singular: String!
+}
+
+type KeystoneAdminUISort {
+    direction: KeystoneAdminUISortDirection!
+    field: String!
+}
+
+type KeystoneMeta {
+    adminMeta: KeystoneAdminMeta!
+}
+
+" A keystone list "
+type Logo {
+    _courseMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortCoursesBy!], where: CourseWhereInput): _QueryMeta
+    alt: String
+    course(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortCoursesBy!], where: CourseWhereInput): [Course!]!
+    home: Boolean
+    id: ID!
+    image: CloudinaryImage_File
+    name: String
+}
+
+type Mutation {
+    authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult!
+    " Create a single Blog item. "
+    createBlog(data: BlogCreateInput): Blog
+    " Create multiple Blog items. "
+    createBlogs(data: [BlogsCreateInput]): [Blog]
+    " Create a single Course item. "
+    createCourse(data: CourseCreateInput): Course
+    " Create multiple Course items. "
+    createCourses(data: [CoursesCreateInput]): [Course]
+    " Create a single Image item. "
+    createImage(data: ImageCreateInput): Image
+    " Create multiple Image items. "
+    createImages(data: [ImagesCreateInput]): [Image]
+    createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
+    " Create a single Logo item. "
+    createLogo(data: LogoCreateInput): Logo
+    " Create multiple Logo items. "
+    createLogos(data: [LogosCreateInput]): [Logo]
+    " Create a single Project item. "
+    createProject(data: ProjectCreateInput): Project
+    " Create multiple Project items. "
+    createProjects(data: [ProjectsCreateInput]): [Project]
+    " Create a single User item. "
+    createUser(data: UserCreateInput): User
+    " Create multiple User items. "
+    createUsers(data: [UsersCreateInput]): [User]
+    " Delete a single Blog item by ID. "
+    deleteBlog(id: ID!): Blog
+    " Delete multiple Blog items by ID. "
+    deleteBlogs(ids: [ID!]): [Blog]
+    " Delete a single Course item by ID. "
+    deleteCourse(id: ID!): Course
+    " Delete multiple Course items by ID. "
+    deleteCourses(ids: [ID!]): [Course]
+    " Delete a single Image item by ID. "
+    deleteImage(id: ID!): Image
+    " Delete multiple Image items by ID. "
+    deleteImages(ids: [ID!]): [Image]
+    " Delete a single Logo item by ID. "
+    deleteLogo(id: ID!): Logo
+    " Delete multiple Logo items by ID. "
+    deleteLogos(ids: [ID!]): [Logo]
+    " Delete a single Project item by ID. "
+    deleteProject(id: ID!): Project
+    " Delete multiple Project items by ID. "
+    deleteProjects(ids: [ID!]): [Project]
+    " Delete a single User item by ID. "
+    deleteUser(id: ID!): User
+    " Delete multiple User items by ID. "
+    deleteUsers(ids: [ID!]): [User]
+    endSession: Boolean!
+    " Update a single Blog item by ID. "
+    updateBlog(data: BlogUpdateInput, id: ID!): Blog
+    " Update multiple Blog items by ID. "
+    updateBlogs(data: [BlogsUpdateInput]): [Blog]
+    " Update a single Course item by ID. "
+    updateCourse(data: CourseUpdateInput, id: ID!): Course
+    " Update multiple Course items by ID. "
+    updateCourses(data: [CoursesUpdateInput]): [Course]
+    " Update a single Image item by ID. "
+    updateImage(data: ImageUpdateInput, id: ID!): Image
+    " Update multiple Image items by ID. "
+    updateImages(data: [ImagesUpdateInput]): [Image]
+    " Update a single Logo item by ID. "
+    updateLogo(data: LogoUpdateInput, id: ID!): Logo
+    " Update multiple Logo items by ID. "
+    updateLogos(data: [LogosUpdateInput]): [Logo]
+    " Update a single Project item by ID. "
+    updateProject(data: ProjectUpdateInput, id: ID!): Project
+    " Update multiple Project items by ID. "
+    updateProjects(data: [ProjectsUpdateInput]): [Project]
+    " Update a single User item by ID. "
+    updateUser(data: UserUpdateInput, id: ID!): User
+    " Update multiple User items by ID. "
+    updateUsers(data: [UsersUpdateInput]): [User]
+}
+
+" A keystone list "
+type Project {
+    created: String
+    description: String
+    githubLink: String
+    id: ID!
+    image: Image
+    liveLink: String
+    name: String
+    updated: String
+}
+
+type Query {
+    " Search for the Blog item with the matching ID. "
+    Blog(where: BlogWhereUniqueInput!): Blog
+    " Search for the Course item with the matching ID. "
+    Course(where: CourseWhereUniqueInput!): Course
+    " Search for the Image item with the matching ID. "
+    Image(where: ImageWhereUniqueInput!): Image
+    " Search for the Logo item with the matching ID. "
+    Logo(where: LogoWhereUniqueInput!): Logo
+    " Search for the Project item with the matching ID. "
+    Project(where: ProjectWhereUniqueInput!): Project
+    " Search for the User item with the matching ID. "
+    User(where: UserWhereUniqueInput!): User
+    " Retrieve the meta-data for the Blog list. "
+    _BlogsMeta: _ListMeta
+    " Retrieve the meta-data for the Course list. "
+    _CoursesMeta: _ListMeta
+    " Retrieve the meta-data for the Image list. "
+    _ImagesMeta: _ListMeta
+    " Retrieve the meta-data for the Logo list. "
+    _LogosMeta: _ListMeta
+    " Retrieve the meta-data for the Project list. "
+    _ProjectsMeta: _ListMeta
+    " Retrieve the meta-data for the User list. "
+    _UsersMeta: _ListMeta
+    " Perform a meta-query on all Blog items which match the where clause. "
+    _allBlogsMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortBlogsBy!], where: BlogWhereInput): _QueryMeta
+    " Perform a meta-query on all Course items which match the where clause. "
+    _allCoursesMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortCoursesBy!], where: CourseWhereInput): _QueryMeta
+    " Perform a meta-query on all Image items which match the where clause. "
+    _allImagesMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortImagesBy!], where: ImageWhereInput): _QueryMeta
+    " Perform a meta-query on all Logo items which match the where clause. "
+    _allLogosMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortLogosBy!], where: LogoWhereInput): _QueryMeta
+    " Perform a meta-query on all Project items which match the where clause. "
+    _allProjectsMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortProjectsBy!], where: ProjectWhereInput): _QueryMeta
+    " Perform a meta-query on all User items which match the where clause. "
+    _allUsersMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortUsersBy!], where: UserWhereInput): _QueryMeta
+    " Retrieve the meta-data for all lists. "
+    _ksListsMeta(where: _ksListsMetaInput): [_ListMeta]
+    " Search for all Blog items which match the where clause. "
+    allBlogs(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortBlogsBy!], where: BlogWhereInput): [Blog]
+    " Search for all Course items which match the where clause. "
+    allCourses(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortCoursesBy!], where: CourseWhereInput): [Course]
+    " Search for all Image items which match the where clause. "
+    allImages(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortImagesBy!], where: ImageWhereInput): [Image]
+    " Search for all Logo items which match the where clause. "
+    allLogos(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortLogosBy!], where: LogoWhereInput): [Logo]
+    " Search for all Project items which match the where clause. "
+    allProjects(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortProjectsBy!], where: ProjectWhereInput): [Project]
+    " Search for all User items which match the where clause. "
+    allUsers(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortUsersBy!], where: UserWhereInput): [User]
+    "The version of the Keystone application serving this API."
+    appVersion: String
+    authenticatedItem: AuthenticatedItem
+    keystone: KeystoneMeta!
+}
+
+" A keystone list "
+type User {
+    _blogPostMeta(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortBlogsBy!], where: BlogWhereInput): _QueryMeta
+    blogPost(first: Int, orderBy: String, search: String, skip: Int, sortBy: [SortBlogsBy!], where: BlogWhereInput): [Blog!]!
+    email: String
+    id: ID!
+    magicAuthIssuedAt: String
+    magicAuthRedeemedAt: String
+    magicAuthToken_is_set: Boolean
+    name: String
+    passwordResetIssuedAt: String
+    passwordResetRedeemedAt: String
+    passwordResetToken_is_set: Boolean
+    password_is_set: Boolean
+    url: String
+}
+
+type UserAuthenticationWithPasswordFailure {
+    code: PasswordAuthErrorCode!
+    message: String!
+}
+
+type UserAuthenticationWithPasswordSuccess {
+    item: User!
+    sessionToken: String!
+}
+
+type _ListAccess {
+    """
+
+    Access Control settings for the currently logged in (or anonymous)
+    user when performing 'auth' operations.
+    """
+    auth: JSON
+    """
+
+    Access Control settings for the currently logged in (or anonymous)
+    user when performing 'create' operations.
+    NOTE: 'create' can only return a Boolean.
+    It is not possible to specify a declarative Where clause for this
+    operation
+    """
+    create: Boolean
+    """
+
+    Access Control settings for the currently logged in (or anonymous)
+    user when performing 'delete' operations.
+    """
+    delete: JSON
+    """
+
+    Access Control settings for the currently logged in (or anonymous)
+    user when performing 'read' operations.
+    """
+    read: JSON
+    """
+
+    Access Control settings for the currently logged in (or anonymous)
+    user when performing 'update' operations.
+    """
+    update: JSON
+}
+
+type _ListInputTypes {
+    "Create mutation input type name"
+    createInput: String
+    "Create many mutation input type name"
+    createManyInput: String
+    "Update mutation name input"
+    updateInput: String
+    "Update many mutation name input"
+    updateManyInput: String
+    "Input type for matching multiple items"
+    whereInput: String
+    "Input type for matching a unique item"
+    whereUniqueInput: String
+}
+
+type _ListMeta {
+    "Access control configuration for the currently authenticated request"
+    access: _ListAccess
+    "The list's user-facing description"
+    description: String
+    "The Keystone list key"
+    key: String
+    "The list's display name in the Admin UI"
+    label: String
+    "The Keystone List name"
+    name: String @deprecated(reason : "Use `key` instead")
+    "The list's data path"
+    path: String
+    "The list's plural display name"
+    plural: String
+    "Information on the generated GraphQL schema"
+    schema: _ListSchema
+    "The list's singular display name"
+    singular: String
+}
+
+type _ListMutations {
+    "Create mutation name"
+    create: String
+    "Create many mutation name"
+    createMany: String
+    "Delete mutation name"
+    delete: String
+    "Delete many mutation name"
+    deleteMany: String
+    "Update mutation name"
+    update: String
+    "Update many mutation name"
+    updateMany: String
+}
+
+type _ListQueries {
+    "Single-item query name"
+    item: String
+    "All-items query name"
+    list: String
+    "List metadata query name"
+    meta: String
+}
+
+type _ListSchema {
+    "Information about fields defined on this list"
+    fields(where: _ListSchemaFieldsInput): [_ListSchemaFields]
+    "Top-level GraphQL input types"
+    inputTypes: _ListInputTypes
+    "Top-level GraphQL mutation names"
+    mutations: _ListMutations
+    """
+
+    Top level GraphQL query names which either return this type, or
+    provide aggregate information about this type
+    """
+    queries: _ListQueries
+    """
+
+    Information about fields on other types which return this type, or
+    provide aggregate information about this type
+    """
+    relatedFields: [_ListSchemaRelatedFields]
+    "The typename as used in GraphQL queries"
+    type: String
+}
+
+type _ListSchemaFields {
+    "The name of the field in its list"
+    name: String @deprecated(reason : "Use `path` instead")
+    "The path of the field in its list"
+    path: String
+    "The field type (ie, Checkbox, Text, etc)"
+    type: String
+}
+
+type _ListSchemaRelatedFields {
+    "A list of GraphQL field names"
+    fields: [String]
+    "The typename as used in GraphQL queries"
+    type: String
+}
+
+type _QueryMeta {
+    count: Int
+}
+
+enum KeystoneAdminUIFieldMetaCreateViewFieldMode {
+    edit
+    hidden
+}
+
+enum KeystoneAdminUIFieldMetaItemViewFieldMode {
+    edit
+    hidden
+    read
+}
+
+enum KeystoneAdminUIFieldMetaListViewFieldMode {
+    hidden
+    read
+}
+
+enum KeystoneAdminUISortDirection {
+    ASC
+    DESC
+}
+
+enum PasswordAuthErrorCode {
+    FAILURE
+    IDENTITY_NOT_FOUND
+    MULTIPLE_IDENTITY_MATCHES
+    SECRET_MISMATCH
+    SECRET_NOT_SET
+}
+
+enum SortBlogsBy {
+    author_ASC
+    author_DESC
+    created_ASC
+    created_DESC
+    id_ASC
+    id_DESC
+    image_ASC
+    image_DESC
+    summary_ASC
+    summary_DESC
+    title_ASC
+    title_DESC
+    updated_ASC
+    updated_DESC
+}
+
+enum SortCoursesBy {
+    id_ASC
+    id_DESC
+    logo_ASC
+    logo_DESC
+    title_ASC
+    title_DESC
+}
+
+enum SortImagesBy {
+    alt_ASC
+    alt_DESC
+    blog_ASC
+    blog_DESC
+    id_ASC
+    id_DESC
+    name_ASC
+    name_DESC
+    project_ASC
+    project_DESC
+}
+
+enum SortLogosBy {
+    alt_ASC
+    alt_DESC
+    course_ASC
+    course_DESC
+    home_ASC
+    home_DESC
+    id_ASC
+    id_DESC
+    name_ASC
+    name_DESC
+}
+
+enum SortProjectsBy {
+    created_ASC
+    created_DESC
+    description_ASC
+    description_DESC
+    githubLink_ASC
+    githubLink_DESC
+    id_ASC
+    id_DESC
+    image_ASC
+    image_DESC
+    liveLink_ASC
+    liveLink_DESC
+    name_ASC
+    name_DESC
+    updated_ASC
+    updated_DESC
+}
+
+enum SortUsersBy {
+    blogPost_ASC
+    blogPost_DESC
+    email_ASC
+    email_DESC
+    id_ASC
+    id_DESC
+    magicAuthIssuedAt_ASC
+    magicAuthIssuedAt_DESC
+    magicAuthRedeemedAt_ASC
+    magicAuthRedeemedAt_DESC
+    name_ASC
+    name_DESC
+    passwordResetIssuedAt_ASC
+    passwordResetIssuedAt_DESC
+    passwordResetRedeemedAt_ASC
+    passwordResetRedeemedAt_DESC
+    url_ASC
+    url_DESC
+}
+
+input BlogCreateInput {
+    author: UserRelateToOneInput
+    created: String
+    image: ImageRelateToOneInput
+    summary: String
+    title: String
+    updated: String
+}
+
+input BlogRelateToManyInput {
+    connect: [BlogWhereUniqueInput]
+    create: [BlogCreateInput]
+    disconnect: [BlogWhereUniqueInput]
+    disconnectAll: Boolean
+}
+
+input BlogUpdateInput {
+    author: UserRelateToOneInput
+    created: String
+    image: ImageRelateToOneInput
+    summary: String
+    title: String
+    updated: String
+}
+
+input BlogWhereInput {
+    AND: [BlogWhereInput]
+    OR: [BlogWhereInput]
+    author: UserWhereInput
+    author_is_null: Boolean
+    created: String
+    created_gt: String
+    created_gte: String
+    created_in: [String]
+    created_lt: String
+    created_lte: String
+    created_not: String
+    created_not_in: [String]
+    id: ID
+    id_in: [ID]
+    id_not: ID
+    id_not_in: [ID]
+    image: ImageWhereInput
+    image_is_null: Boolean
+    summary: String
+    summary_contains: String
+    summary_contains_i: String
+    summary_ends_with: String
+    summary_ends_with_i: String
+    summary_i: String
+    summary_in: [String]
+    summary_not: String
+    summary_not_contains: String
+    summary_not_contains_i: String
+    summary_not_ends_with: String
+    summary_not_ends_with_i: String
+    summary_not_i: String
+    summary_not_in: [String]
+    summary_not_starts_with: String
+    summary_not_starts_with_i: String
+    summary_starts_with: String
+    summary_starts_with_i: String
+    title: String
+    title_contains: String
+    title_contains_i: String
+    title_ends_with: String
+    title_ends_with_i: String
+    title_i: String
+    title_in: [String]
+    title_not: String
+    title_not_contains: String
+    title_not_contains_i: String
+    title_not_ends_with: String
+    title_not_ends_with_i: String
+    title_not_i: String
+    title_not_in: [String]
+    title_not_starts_with: String
+    title_not_starts_with_i: String
+    title_starts_with: String
+    title_starts_with_i: String
+    updated: String
+    updated_gt: String
+    updated_gte: String
+    updated_in: [String]
+    updated_lt: String
+    updated_lte: String
+    updated_not: String
+    updated_not_in: [String]
+}
+
+input BlogWhereUniqueInput {
+    id: ID!
+}
+
+input BlogsCreateInput {
+    data: BlogCreateInput
+}
+
+input BlogsUpdateInput {
+    data: BlogUpdateInput
+    id: ID!
+}
+
+"""
+
+Mirrors the formatting options [Cloudinary provides](https://cloudinary.com/documentation/image_transformation_reference).
+All options are strings as they ultimately end up in a URL.
+"""
+input CloudinaryImageFormat {
+    angle: String
+    aspect_ratio: String
+    background: String
+    border: String
+    color: String
+    color_space: String
+    crop: String
+    default_image: String
+    delay: String
+    density: String
+    dpr: String
+    effect: String
+    fetch_format: String
+    flags: String
+    format: String
+    gravity: String
+    height: String
+    opacity: String
+    overlay: String
+    page: String
+    " Rewrites the filename to be this pretty string. Do not include `/` or `.` "
+    prettyName: String
+    quality: String
+    radius: String
+    transformation: String
+    underlay: String
+    width: String
+    x: String
+    y: String
+    zoom: String
+}
+
+input CourseCreateInput {
+    logo: LogoRelateToOneInput
+    title: String
+}
+
+input CourseRelateToManyInput {
+    connect: [CourseWhereUniqueInput]
+    create: [CourseCreateInput]
+    disconnect: [CourseWhereUniqueInput]
+    disconnectAll: Boolean
+}
+
+input CourseUpdateInput {
+    logo: LogoRelateToOneInput
+    title: String
+}
+
+input CourseWhereInput {
+    AND: [CourseWhereInput]
+    OR: [CourseWhereInput]
+    id: ID
+    id_in: [ID]
+    id_not: ID
+    id_not_in: [ID]
+    logo: LogoWhereInput
+    logo_is_null: Boolean
+    title: String
+    title_contains: String
+    title_contains_i: String
+    title_ends_with: String
+    title_ends_with_i: String
+    title_i: String
+    title_in: [String]
+    title_not: String
+    title_not_contains: String
+    title_not_contains_i: String
+    title_not_ends_with: String
+    title_not_ends_with_i: String
+    title_not_i: String
+    title_not_in: [String]
+    title_not_starts_with: String
+    title_not_starts_with_i: String
+    title_starts_with: String
+    title_starts_with_i: String
+}
+
+input CourseWhereUniqueInput {
+    id: ID!
+}
+
+input CoursesCreateInput {
+    data: CourseCreateInput
+}
+
+input CoursesUpdateInput {
+    data: CourseUpdateInput
+    id: ID!
+}
+
+input CreateInitialUserInput {
+    email: String
+    name: String
+    password: String
+    url: String
+}
+
+input ImageCreateInput {
+    alt: String
+    blog: BlogRelateToManyInput
+    image: Upload
+    name: String
+    project: ProjectRelateToManyInput
+}
+
+input ImageRelateToOneInput {
+    connect: ImageWhereUniqueInput
+    create: ImageCreateInput
+    disconnect: ImageWhereUniqueInput
+    disconnectAll: Boolean
+}
+
+input ImageUpdateInput {
+    alt: String
+    blog: BlogRelateToManyInput
+    image: Upload
+    name: String
+    project: ProjectRelateToManyInput
+}
+
+input ImageWhereInput {
+    AND: [ImageWhereInput]
+    OR: [ImageWhereInput]
+    alt: String
+    alt_contains: String
+    alt_contains_i: String
+    alt_ends_with: String
+    alt_ends_with_i: String
+    alt_i: String
+    alt_in: [String]
+    alt_not: String
+    alt_not_contains: String
+    alt_not_contains_i: String
+    alt_not_ends_with: String
+    alt_not_ends_with_i: String
+    alt_not_i: String
+    alt_not_in: [String]
+    alt_not_starts_with: String
+    alt_not_starts_with_i: String
+    alt_starts_with: String
+    alt_starts_with_i: String
+    " condition must be true for all nodes "
+    blog_every: BlogWhereInput
+    " condition must be false for all nodes "
+    blog_none: BlogWhereInput
+    " condition must be true for at least 1 node "
+    blog_some: BlogWhereInput
+    id: ID
+    id_in: [ID]
+    id_not: ID
+    id_not_in: [ID]
+    image: String
+    image_in: [String]
+    image_not: String
+    image_not_in: [String]
+    name: String
+    name_contains: String
+    name_contains_i: String
+    name_ends_with: String
+    name_ends_with_i: String
+    name_i: String
+    name_in: [String]
+    name_not: String
+    name_not_contains: String
+    name_not_contains_i: String
+    name_not_ends_with: String
+    name_not_ends_with_i: String
+    name_not_i: String
+    name_not_in: [String]
+    name_not_starts_with: String
+    name_not_starts_with_i: String
+    name_starts_with: String
+    name_starts_with_i: String
+    " condition must be true for all nodes "
+    project_every: ProjectWhereInput
+    " condition must be false for all nodes "
+    project_none: ProjectWhereInput
+    " condition must be true for at least 1 node "
+    project_some: ProjectWhereInput
+}
+
+input ImageWhereUniqueInput {
+    id: ID!
+}
+
+input ImagesCreateInput {
+    data: ImageCreateInput
+}
+
+input ImagesUpdateInput {
+    data: ImageUpdateInput
+    id: ID!
+}
+
+input LogoCreateInput {
+    alt: String
+    course: CourseRelateToManyInput
+    home: Boolean
+    image: Upload
+    name: String
+}
+
+input LogoRelateToOneInput {
+    connect: LogoWhereUniqueInput
+    create: LogoCreateInput
+    disconnect: LogoWhereUniqueInput
+    disconnectAll: Boolean
+}
+
+input LogoUpdateInput {
+    alt: String
+    course: CourseRelateToManyInput
+    home: Boolean
+    image: Upload
+    name: String
+}
+
+input LogoWhereInput {
+    AND: [LogoWhereInput]
+    OR: [LogoWhereInput]
+    alt: String
+    alt_contains: String
+    alt_contains_i: String
+    alt_ends_with: String
+    alt_ends_with_i: String
+    alt_i: String
+    alt_in: [String]
+    alt_not: String
+    alt_not_contains: String
+    alt_not_contains_i: String
+    alt_not_ends_with: String
+    alt_not_ends_with_i: String
+    alt_not_i: String
+    alt_not_in: [String]
+    alt_not_starts_with: String
+    alt_not_starts_with_i: String
+    alt_starts_with: String
+    alt_starts_with_i: String
+    " condition must be true for all nodes "
+    course_every: CourseWhereInput
+    " condition must be false for all nodes "
+    course_none: CourseWhereInput
+    " condition must be true for at least 1 node "
+    course_some: CourseWhereInput
+    home: Boolean
+    home_not: Boolean
+    id: ID
+    id_in: [ID]
+    id_not: ID
+    id_not_in: [ID]
+    image: String
+    image_in: [String]
+    image_not: String
+    image_not_in: [String]
+    name: String
+    name_contains: String
+    name_contains_i: String
+    name_ends_with: String
+    name_ends_with_i: String
+    name_i: String
+    name_in: [String]
+    name_not: String
+    name_not_contains: String
+    name_not_contains_i: String
+    name_not_ends_with: String
+    name_not_ends_with_i: String
+    name_not_i: String
+    name_not_in: [String]
+    name_not_starts_with: String
+    name_not_starts_with_i: String
+    name_starts_with: String
+    name_starts_with_i: String
+}
+
+input LogoWhereUniqueInput {
+    id: ID!
+}
+
+input LogosCreateInput {
+    data: LogoCreateInput
+}
+
+input LogosUpdateInput {
+    data: LogoUpdateInput
+    id: ID!
+}
+
+input ProjectCreateInput {
+    created: String
+    description: String
+    githubLink: String
+    image: ImageRelateToOneInput
+    liveLink: String
+    name: String
+    updated: String
+}
+
+input ProjectRelateToManyInput {
+    connect: [ProjectWhereUniqueInput]
+    create: [ProjectCreateInput]
+    disconnect: [ProjectWhereUniqueInput]
+    disconnectAll: Boolean
+}
+
+input ProjectUpdateInput {
+    created: String
+    description: String
+    githubLink: String
+    image: ImageRelateToOneInput
+    liveLink: String
+    name: String
+    updated: String
+}
+
+input ProjectWhereInput {
+    AND: [ProjectWhereInput]
+    OR: [ProjectWhereInput]
+    created: String
+    created_gt: String
+    created_gte: String
+    created_in: [String]
+    created_lt: String
+    created_lte: String
+    created_not: String
+    created_not_in: [String]
+    description: String
+    description_contains: String
+    description_contains_i: String
+    description_ends_with: String
+    description_ends_with_i: String
+    description_i: String
+    description_in: [String]
+    description_not: String
+    description_not_contains: String
+    description_not_contains_i: String
+    description_not_ends_with: String
+    description_not_ends_with_i: String
+    description_not_i: String
+    description_not_in: [String]
+    description_not_starts_with: String
+    description_not_starts_with_i: String
+    description_starts_with: String
+    description_starts_with_i: String
+    githubLink: String
+    githubLink_contains: String
+    githubLink_contains_i: String
+    githubLink_ends_with: String
+    githubLink_ends_with_i: String
+    githubLink_i: String
+    githubLink_in: [String]
+    githubLink_not: String
+    githubLink_not_contains: String
+    githubLink_not_contains_i: String
+    githubLink_not_ends_with: String
+    githubLink_not_ends_with_i: String
+    githubLink_not_i: String
+    githubLink_not_in: [String]
+    githubLink_not_starts_with: String
+    githubLink_not_starts_with_i: String
+    githubLink_starts_with: String
+    githubLink_starts_with_i: String
+    id: ID
+    id_in: [ID]
+    id_not: ID
+    id_not_in: [ID]
+    image: ImageWhereInput
+    image_is_null: Boolean
+    liveLink: String
+    liveLink_contains: String
+    liveLink_contains_i: String
+    liveLink_ends_with: String
+    liveLink_ends_with_i: String
+    liveLink_i: String
+    liveLink_in: [String]
+    liveLink_not: String
+    liveLink_not_contains: String
+    liveLink_not_contains_i: String
+    liveLink_not_ends_with: String
+    liveLink_not_ends_with_i: String
+    liveLink_not_i: String
+    liveLink_not_in: [String]
+    liveLink_not_starts_with: String
+    liveLink_not_starts_with_i: String
+    liveLink_starts_with: String
+    liveLink_starts_with_i: String
+    name: String
+    name_contains: String
+    name_contains_i: String
+    name_ends_with: String
+    name_ends_with_i: String
+    name_i: String
+    name_in: [String]
+    name_not: String
+    name_not_contains: String
+    name_not_contains_i: String
+    name_not_ends_with: String
+    name_not_ends_with_i: String
+    name_not_i: String
+    name_not_in: [String]
+    name_not_starts_with: String
+    name_not_starts_with_i: String
+    name_starts_with: String
+    name_starts_with_i: String
+    updated: String
+    updated_gt: String
+    updated_gte: String
+    updated_in: [String]
+    updated_lt: String
+    updated_lte: String
+    updated_not: String
+    updated_not_in: [String]
+}
+
+input ProjectWhereUniqueInput {
+    id: ID!
+}
+
+input ProjectsCreateInput {
+    data: ProjectCreateInput
+}
+
+input ProjectsUpdateInput {
+    data: ProjectUpdateInput
+    id: ID!
+}
+
+input UserCreateInput {
+    blogPost: BlogRelateToManyInput
+    email: String
+    magicAuthIssuedAt: String
+    magicAuthRedeemedAt: String
+    magicAuthToken: String
+    name: String
+    password: String
+    passwordResetIssuedAt: String
+    passwordResetRedeemedAt: String
+    passwordResetToken: String
+    url: String
+}
+
+input UserRelateToOneInput {
+    connect: UserWhereUniqueInput
+    create: UserCreateInput
+    disconnect: UserWhereUniqueInput
+    disconnectAll: Boolean
+}
+
+input UserUpdateInput {
+    blogPost: BlogRelateToManyInput
+    email: String
+    magicAuthIssuedAt: String
+    magicAuthRedeemedAt: String
+    magicAuthToken: String
+    name: String
+    password: String
+    passwordResetIssuedAt: String
+    passwordResetRedeemedAt: String
+    passwordResetToken: String
+    url: String
+}
+
+input UserWhereInput {
+    AND: [UserWhereInput]
+    OR: [UserWhereInput]
+    " condition must be true for all nodes "
+    blogPost_every: BlogWhereInput
+    " condition must be false for all nodes "
+    blogPost_none: BlogWhereInput
+    " condition must be true for at least 1 node "
+    blogPost_some: BlogWhereInput
+    email: String
+    email_contains: String
+    email_contains_i: String
+    email_ends_with: String
+    email_ends_with_i: String
+    email_i: String
+    email_in: [String]
+    email_not: String
+    email_not_contains: String
+    email_not_contains_i: String
+    email_not_ends_with: String
+    email_not_ends_with_i: String
+    email_not_i: String
+    email_not_in: [String]
+    email_not_starts_with: String
+    email_not_starts_with_i: String
+    email_starts_with: String
+    email_starts_with_i: String
+    id: ID
+    id_in: [ID]
+    id_not: ID
+    id_not_in: [ID]
+    magicAuthIssuedAt: String
+    magicAuthIssuedAt_gt: String
+    magicAuthIssuedAt_gte: String
+    magicAuthIssuedAt_in: [String]
+    magicAuthIssuedAt_lt: String
+    magicAuthIssuedAt_lte: String
+    magicAuthIssuedAt_not: String
+    magicAuthIssuedAt_not_in: [String]
+    magicAuthRedeemedAt: String
+    magicAuthRedeemedAt_gt: String
+    magicAuthRedeemedAt_gte: String
+    magicAuthRedeemedAt_in: [String]
+    magicAuthRedeemedAt_lt: String
+    magicAuthRedeemedAt_lte: String
+    magicAuthRedeemedAt_not: String
+    magicAuthRedeemedAt_not_in: [String]
+    magicAuthToken_is_set: Boolean
+    name: String
+    name_contains: String
+    name_contains_i: String
+    name_ends_with: String
+    name_ends_with_i: String
+    name_i: String
+    name_in: [String]
+    name_not: String
+    name_not_contains: String
+    name_not_contains_i: String
+    name_not_ends_with: String
+    name_not_ends_with_i: String
+    name_not_i: String
+    name_not_in: [String]
+    name_not_starts_with: String
+    name_not_starts_with_i: String
+    name_starts_with: String
+    name_starts_with_i: String
+    passwordResetIssuedAt: String
+    passwordResetIssuedAt_gt: String
+    passwordResetIssuedAt_gte: String
+    passwordResetIssuedAt_in: [String]
+    passwordResetIssuedAt_lt: String
+    passwordResetIssuedAt_lte: String
+    passwordResetIssuedAt_not: String
+    passwordResetIssuedAt_not_in: [String]
+    passwordResetRedeemedAt: String
+    passwordResetRedeemedAt_gt: String
+    passwordResetRedeemedAt_gte: String
+    passwordResetRedeemedAt_in: [String]
+    passwordResetRedeemedAt_lt: String
+    passwordResetRedeemedAt_lte: String
+    passwordResetRedeemedAt_not: String
+    passwordResetRedeemedAt_not_in: [String]
+    passwordResetToken_is_set: Boolean
+    password_is_set: Boolean
+    url: String
+    url_contains: String
+    url_contains_i: String
+    url_ends_with: String
+    url_ends_with_i: String
+    url_i: String
+    url_in: [String]
+    url_not: String
+    url_not_contains: String
+    url_not_contains_i: String
+    url_not_ends_with: String
+    url_not_ends_with_i: String
+    url_not_i: String
+    url_not_in: [String]
+    url_not_starts_with: String
+    url_not_starts_with_i: String
+    url_starts_with: String
+    url_starts_with_i: String
+}
+
+input UserWhereUniqueInput {
+    id: ID!
+}
+
+input UsersCreateInput {
+    data: UserCreateInput
+}
+
+input UsersUpdateInput {
+    data: UserUpdateInput
+    id: ID!
+}
+
+input _ListSchemaFieldsInput {
+    type: String
+}
+
+input _ksListsMetaInput {
+    "Whether this is an auxiliary helper list"
+    auxiliary: Boolean
+    key: String
+}
+
+
+"The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSON
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload
