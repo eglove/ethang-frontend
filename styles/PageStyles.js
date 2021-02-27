@@ -18,6 +18,19 @@ export const BlogGrid = styled(MainContent)`
   place-items: flex-start;
 `;
 
+export const CourseGrid = styled.div`
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid var(--fontColor);
+  gap: 1rem;
+  grid-template-columns: repeat(2, auto) repeat(2, 1fr);
+
+  img {
+    width: 25px;
+    height: 25px;
+  }
+`;
+
 export const SmallImageStyles = styled.img`
   width: 50px;
   height: 50px;

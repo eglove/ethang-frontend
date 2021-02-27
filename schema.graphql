@@ -38,9 +38,14 @@ type CloudinaryImage_File {
 
 " A keystone list "
 type Course {
+    complete: Boolean
+    hours: String
     id: ID!
     logo: Logo
+    order: Int
     title: String
+    updated: String
+    url: String
 }
 
 " A keystone list "
@@ -489,12 +494,22 @@ enum SortBlogsBy {
 }
 
 enum SortCoursesBy {
+    complete_ASC
+    complete_DESC
+    hours_ASC
+    hours_DESC
     id_ASC
     id_DESC
     logo_ASC
     logo_DESC
+    order_ASC
+    order_DESC
     title_ASC
     title_DESC
+    updated_ASC
+    updated_DESC
+    url_ASC
+    url_DESC
 }
 
 enum SortImagesBy {
@@ -705,8 +720,13 @@ input CloudinaryImageFormat {
 }
 
 input CourseCreateInput {
+    complete: Boolean
+    hours: String
     logo: LogoRelateToOneInput
+    order: Int
     title: String
+    updated: String
+    url: String
 }
 
 input CourseRelateToManyInput {
@@ -717,19 +737,52 @@ input CourseRelateToManyInput {
 }
 
 input CourseUpdateInput {
+    complete: Boolean
+    hours: String
     logo: LogoRelateToOneInput
+    order: Int
     title: String
+    updated: String
+    url: String
 }
 
 input CourseWhereInput {
     AND: [CourseWhereInput]
     OR: [CourseWhereInput]
+    complete: Boolean
+    complete_not: Boolean
+    hours: String
+    hours_contains: String
+    hours_contains_i: String
+    hours_ends_with: String
+    hours_ends_with_i: String
+    hours_i: String
+    hours_in: [String]
+    hours_not: String
+    hours_not_contains: String
+    hours_not_contains_i: String
+    hours_not_ends_with: String
+    hours_not_ends_with_i: String
+    hours_not_i: String
+    hours_not_in: [String]
+    hours_not_starts_with: String
+    hours_not_starts_with_i: String
+    hours_starts_with: String
+    hours_starts_with_i: String
     id: ID
     id_in: [ID]
     id_not: ID
     id_not_in: [ID]
     logo: LogoWhereInput
     logo_is_null: Boolean
+    order: Int
+    order_gt: Int
+    order_gte: Int
+    order_in: [Int]
+    order_lt: Int
+    order_lte: Int
+    order_not: Int
+    order_not_in: [Int]
     title: String
     title_contains: String
     title_contains_i: String
@@ -748,6 +801,32 @@ input CourseWhereInput {
     title_not_starts_with_i: String
     title_starts_with: String
     title_starts_with_i: String
+    updated: String
+    updated_gt: String
+    updated_gte: String
+    updated_in: [String]
+    updated_lt: String
+    updated_lte: String
+    updated_not: String
+    updated_not_in: [String]
+    url: String
+    url_contains: String
+    url_contains_i: String
+    url_ends_with: String
+    url_ends_with_i: String
+    url_i: String
+    url_in: [String]
+    url_not: String
+    url_not_contains: String
+    url_not_contains_i: String
+    url_not_ends_with: String
+    url_not_ends_with_i: String
+    url_not_i: String
+    url_not_in: [String]
+    url_not_starts_with: String
+    url_not_starts_with_i: String
+    url_starts_with: String
+    url_starts_with_i: String
 }
 
 input CourseWhereUniqueInput {

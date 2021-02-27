@@ -1,9 +1,7 @@
+import Course from '../components/Course';
+
 function RecommendedCoursesPage() {
-  return (
-    <div>
-      <p>RecommendedCourses</p>
-    </div>
-  );
+  return <Course />;
 }
 
 export default RecommendedCoursesPage;

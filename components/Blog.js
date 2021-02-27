@@ -13,7 +13,6 @@ function Blog() {
   if (error) return <p>Error: {error.message}</p>;
 
   const { allBlogs } = data;
-  console.log(allBlogs[0]);
 
   return (
     <ContentVisibility>
