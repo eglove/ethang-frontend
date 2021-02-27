@@ -50,15 +50,10 @@
     "stylelint-order": "^4.1.0",
     "stylelint-processor-styled-components": "^1.10.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn updateBrowserslist && yarn lint-staged"
-    }
-  },
   "lint-staged": {
     "*.js": [
       "eslint --cache --fix",
-      "stylelint --fix"
+      "stylelint"
     ]
   },
   "jest": {
