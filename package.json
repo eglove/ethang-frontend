@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 7000",
     "build": "next build",
-    "start": "next start -p 7777",
+    "start": "next start -p $PORT",
     "test:jest": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -71,5 +71,7 @@
     ]
   },
   "license": "MIT",
-  "cacheDirectories": [".next/cache"]
+  "cacheDirectories": [
+    ".next/cache"
+  ]
 }
