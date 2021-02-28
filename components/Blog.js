@@ -4,6 +4,7 @@ import { DocumentRenderer } from '@keystone-next/document-renderer';
 import { BLOG_QUERY } from '../graphql/queries';
 import { BlogGrid } from '../styles/PageStyles';
 import { ContentVisibility } from '../styles/GlobalStyles.css';
+import Post from './Post';
 
 function Blog() {
   const { data, error, loading } = useQuery(BLOG_QUERY);
@@ -16,13 +17,8 @@ function Blog() {
 
   return (
     <ContentVisibility>
-      {allBlogs.map((blog) => (
-        <BlogGrid key={blog.id}>
-          <h1>{blog.title}</h1>
-          <Link href={blog.author.url}>{blog.author.name}</Link>
-          <div>{new Date(blog.created).toDateString()}</div>
-          <DocumentRenderer document={blog.content.document} />
-        </BlogGrid>
+      {allBlogs.map((post) => (
+        <Post key={post.id} post={post} />
       ))}
     </ContentVisibility>
   );
