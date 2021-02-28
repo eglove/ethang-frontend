@@ -1,17 +1,16 @@
 import { useQuery } from '@apollo/client';
-import Link from 'next/link';
-import { DocumentRenderer } from '@keystone-next/document-renderer';
 import { BLOG_QUERY } from '../graphql/queries';
-import { BlogGrid } from '../styles/PageStyles';
 import { ContentVisibility } from '../styles/GlobalStyles.css';
 import Post from './Post';
+import Loading from './Loading';
+import Error from './Error';
 
 function Blog() {
   const { data, error, loading } = useQuery(BLOG_QUERY);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <Error message={error.message} />;
 
   const { allBlogs } = data;
 

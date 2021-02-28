@@ -2,13 +2,15 @@ import { useQuery } from '@apollo/client';
 import { MainContent } from '../styles/PageStyles';
 import { HOME_LOGOS_QUERY } from '../graphql/queries';
 import { HomeLogoStyles } from '../styles/HomeLogoStyles';
+import Loading from './Loading';
+import Error from './Error';
 
 function Home() {
   const { data, error, loading } = useQuery(HOME_LOGOS_QUERY);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <Error message={error.message} />;
 
   const { allLogos } = data;
 

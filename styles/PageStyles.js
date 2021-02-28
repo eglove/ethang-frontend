@@ -36,3 +36,11 @@ export const SmallImageStyles = styled.img`
   height: 50px;
   margin: 1rem;
 `;
+
+export const ErrorStyles = styled(MainContent)`
+  border: 3px solid red;
+
+  p {
+    font-weight: bold;
+  }
+`;

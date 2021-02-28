@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { SINGLE_PROJECT_QUERY } from '../../graphql/queries';
 import Project from '../../components/Project';
+import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 
 function SingleProjectPage({ query }) {
   const { id } = query;
@@ -12,9 +14,9 @@ function SingleProjectPage({ query }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <Error message={error.message} />;
 
   const project = data.allProjects[0];
 

@@ -2,6 +2,8 @@ import PropType from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { SINGLE_BLOG_QUERY } from '../../graphql/queries';
 import Post from '../../components/Post';
+import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 
 function SingleBlogPage({ query }) {
   const { id } = query;
@@ -12,9 +14,9 @@ function SingleBlogPage({ query }) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <Error message={error.message} />;
 
   const post = data.allBlogs[0];
 

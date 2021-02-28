@@ -1,13 +1,15 @@
 import { useQuery } from '@apollo/client';
 import { COURSES_INCOMPLETE_QUERY } from '../../graphql/queries';
 import { CourseGrid } from '../../styles/PageStyles';
+import Loading from '../Loading';
+import Error from '../Error';
 
 function CompleteCourses() {
   const { data, error, loading } = useQuery(COURSES_INCOMPLETE_QUERY);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <Error message={error.message} />;
 
   const { allCourses } = data;
 
