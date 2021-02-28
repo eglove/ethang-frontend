@@ -16,7 +16,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en-CA">
-        <Head />
+        <Head>
+          <meta name="monetization" content="$ilp.uphold.com/XqPZ8mnNyprk" />
+        </Head>
         <body>
           <Main />
           <NextScript />
