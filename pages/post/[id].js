@@ -1,6 +1,6 @@
 import PropType from 'prop-types';
 import { useQuery } from '@apollo/client';
-import { SINGLE_BLOG_QUERY } from '../../graphql/queries';
+import { SINGLE_BLOG_QUERY } from '../../graphql/blogQueries';
 import Post from '../../components/Post';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';

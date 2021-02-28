@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import Link from 'next/link';
-import { COURSES_INCOMPLETE_QUERY } from '../../graphql/queries';
+import { COURSES_INCOMPLETE_QUERY } from '../../graphql/courseQueries';
 import { CourseGrid } from '../../styles/PageStyles';
 import Loading from '../Loading';
 import Error from '../Error';

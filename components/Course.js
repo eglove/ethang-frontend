@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
-import { COURSES_LAST_UPDATE_QUERY } from '../graphql/queries';
+import Head from 'next/head';
+import { COURSES_LAST_UPDATE_QUERY } from '../graphql/courseQueries';
 import { ContentVisibility } from '../styles/GlobalStyles.css';
 import CompleteCourses from './CoursesQueries/CompleteCourses';
 import IncompleteCourses from './CoursesQueries/IncompleteCourses';
@@ -17,6 +18,9 @@ function Course() {
 
   return (
     <ContentVisibility>
+      <Head>
+        <title>EthanG | Recommended Courses</title>
+      </Head>
       <h1>Recommended Courses</h1>
       <p>Last Update: {new Date(lastUpdate).toDateString()}</p>
       <CompleteCourses />

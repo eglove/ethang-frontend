@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import Link from 'next/link';
 import { DocumentRenderer } from '@keystone-next/document-renderer';
-import { GITHUB_LOGO_QUERY, GLOBE_LOGO_QUERY } from '../graphql/queries';
+import Head from 'next/head';
+import { GITHUB_LOGO_QUERY, GLOBE_LOGO_QUERY } from '../graphql/logoQueries';
 import { PortfolioGrid, SmallImageStyles } from '../styles/PageStyles';
 import Loading from './Loading';
 import Error from './Error';
@@ -18,6 +19,9 @@ function Project({ project }) {
 
   return (
     <PortfolioGrid key={project.id}>
+      <Head>
+        <title>EthanG | {project.name}</title>
+      </Head>
       <div>
         <h1>{project.name}</h1>
         {project.githubLink ? (

@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
-import { BLOG_QUERY } from '../graphql/queries';
+import Head from 'next/head';
+import { BLOG_QUERY } from '../graphql/blogQueries';
 import { ContentVisibility } from '../styles/GlobalStyles.css';
 import Post from './Post';
 import Loading from './Loading';
@@ -19,6 +20,9 @@ function Blog() {
       {allBlogs.map((post) => (
         <Post key={post.id} post={post} />
       ))}
+      <Head>
+        <title>EthanG | Blog</title>
+      </Head>
     </ContentVisibility>
   );
 }

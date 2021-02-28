@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/client';
+import Head from 'next/head';
 import { MainContent } from '../styles/PageStyles';
-import { HOME_LOGOS_QUERY } from '../graphql/queries';
+import { HOME_LOGOS_QUERY } from '../graphql/logoQueries';
 import { HomeLogoStyles } from '../styles/HomeLogoStyles';
 import Loading from './Loading';
 import Error from './Error';
@@ -16,6 +17,9 @@ function Home() {
 
   return (
     <MainContent>
+      <Head>
+        <title>EthanG</title>
+      </Head>
       <h1>Hi! I'm Ethan Glover.</h1>
       <h2>I'm a developer.</h2>
       <h3>What kind of developer?</h3>

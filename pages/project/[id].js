@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
-import { SINGLE_PROJECT_QUERY } from '../../graphql/queries';
+import { SINGLE_PROJECT_QUERY } from '../../graphql/portfolioQueries';
 import Project from '../../components/Project';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
