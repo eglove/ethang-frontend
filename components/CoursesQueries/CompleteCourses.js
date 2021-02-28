@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import Link from 'next/link';
 import { COURSES_COMPLETE_QUERY } from '../../graphql/queries';
 import { CourseGrid } from '../../styles/PageStyles';
 import Loading from '../Loading';
@@ -22,7 +23,9 @@ function CompleteCourses() {
             src={course.logo.image.publicUrlTransformed}
             alt={course.logo.alt}
           />
-          <p>{course.title}</p>
+          <Link href={course.url}>
+            <a target="_blank">{course.title}</a>
+          </Link>
           <p>{course.hours === '-' ? course.hours : `${course.hours}  hrs`}</p>
         </CourseGrid>
       ))}

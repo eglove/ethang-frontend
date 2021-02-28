@@ -84,6 +84,14 @@ export const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
+
+  a {
+    color: var(--fontColor);
+  }
+
+  a[href^='/'], a[href^='..'] {
+    text-decoration: underline dotted;
+  }
   
   blockquote {
     padding: 0.5em 10px;
