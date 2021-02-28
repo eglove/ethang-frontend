@@ -18,6 +18,10 @@ export const BlogGrid = styled(MainContent)`
   place-items: flex-start;
 `;
 
+export const CourseContainer = styled(MainContent)`
+  place-items: unset;
+`;
+
 export const CourseGrid = styled.div`
   display: grid;
   align-items: center;

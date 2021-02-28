@@ -6,6 +6,7 @@ import CompleteCourses from './CoursesQueries/CompleteCourses';
 import IncompleteCourses from './CoursesQueries/IncompleteCourses';
 import Loading from './Loading';
 import Error from './Error';
+import { CourseContainer } from '../styles/PageStyles';
 
 function Course() {
   const { data, error, loading } = useQuery(COURSES_LAST_UPDATE_QUERY);
@@ -21,11 +22,13 @@ function Course() {
       <Head>
         <title>EthanG | Recommended Courses</title>
       </Head>
-      <h1>Recommended Courses</h1>
-      <p>Last Update: {new Date(lastUpdate).toDateString()}</p>
-      <CompleteCourses />
-      <h2>Courses I'm Looking At</h2>
-      <IncompleteCourses />
+      <CourseContainer>
+        <h1>Recommended Courses</h1>
+        <p>Last Update: {new Date(lastUpdate).toDateString()}</p>
+        <CompleteCourses />
+        <h2>Courses I'm Looking At</h2>
+        <IncompleteCourses />
+      </CourseContainer>
     </ContentVisibility>
   );
 }
