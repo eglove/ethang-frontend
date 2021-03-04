@@ -1,22 +1,11 @@
-import { useQuery } from '@apollo/client';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { COURSES_INCOMPLETE_QUERY } from '../../graphql/courseQueries';
 import { CourseGrid } from '../../styles/PageStyles';
-import Loading from '../Loading';
-import Error from '../Error';
 
-function CompleteCourses() {
-  const { data, error, loading } = useQuery(COURSES_INCOMPLETE_QUERY);
-
-  if (loading) return <Loading />;
-
-  if (error) return <Error message={error.message} />;
-
-  const { allCourses } = data;
-
+function IncompleteCourses({ incompleteCourses }) {
   return (
     <>
-      {allCourses.map((course) => (
+      {incompleteCourses.map((course) => (
         <CourseGrid key={course.id}>
           <p>⬜</p>
           <img
@@ -33,4 +22,8 @@ function CompleteCourses() {
   );
 }
 
-export default CompleteCourses;
+export default IncompleteCourses;
+
+IncompleteCourses.propTypes = {
+  incompleteCourses: PropTypes.array,
+};

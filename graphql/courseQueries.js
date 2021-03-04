@@ -1,8 +1,11 @@
 import { gql } from '@apollo/client';
 
-export const COURSES_COMPLETE_QUERY = gql`
-  query COURSES_QUERY {
-    allCourses(sortBy: [order_ASC], where: { complete: true }) {
+export const ALL_COURSES_QUERY = gql`
+  query All_COURSES_QUERY {
+    completeCourses: allCourses(
+      sortBy: [order_ASC]
+      where: { complete: true }
+    ) {
       id
       complete
       logo {
@@ -16,12 +19,11 @@ export const COURSES_COMPLETE_QUERY = gql`
       url
       hours
     }
-  }
-`;
 
-export const COURSES_INCOMPLETE_QUERY = gql`
-  query COURSES_QUERY {
-    allCourses(sortBy: [order_ASC], where: { complete: null }) {
+    incompleteCourses: allCourses(
+      sortBy: [order_ASC]
+      where: { complete: null }
+    ) {
       id
       complete
       logo {
@@ -35,12 +37,8 @@ export const COURSES_INCOMPLETE_QUERY = gql`
       url
       hours
     }
-  }
-`;
 
-export const COURSES_LAST_UPDATE_QUERY = gql`
-  query COURSES_LAST_UPDATE_QUERY {
-    allCourses(sortBy: [updated_DESC], first: 1) {
+    lastUpdate: allCourses(sortBy: [updated_DESC], first: 1) {
       updated
     }
   }
