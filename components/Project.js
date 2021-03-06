@@ -22,6 +22,7 @@ function Project({ project }) {
     <PortfolioGrid key={project.id}>
       <Head>
         <title>EthanG | {project.name}</title>
+        <meta name="description" content={`Project ${project.name}`} />
       </Head>
       <div>
         <h1>{project.name}</h1>

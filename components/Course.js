@@ -22,6 +22,7 @@ function Course() {
     <ContentVisibility>
       <Head>
         <title>EthanG | Recommended Courses</title>
+        <meta name="description" content="Ethan Glover Recommended Courses" />
       </Head>
       <CourseContainer>
         <h1>Recommended Courses</h1>

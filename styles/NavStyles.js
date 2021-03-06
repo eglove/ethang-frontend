@@ -5,7 +5,7 @@ export const NavStyles = styled.div`
   box-shadow: var(--boxShadow);
 `;
 
-export const InternalLinkStyles = styled.ul`
+export const InternalLinkStyles = styled.div`
   display: inline-flex;
 
   a,

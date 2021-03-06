@@ -19,6 +19,7 @@ function Home() {
     <MainContent>
       <Head>
         <title>EthanG</title>
+        <meta name="description" content="Personal website of Ethan Glover" />
       </Head>
       <h1>Hi! I'm Ethan Glover.</h1>
       <h2>I'm a developer.</h2>

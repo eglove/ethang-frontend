@@ -22,6 +22,7 @@ function Blog() {
       ))}
       <Head>
         <title>EthanG | Blog</title>
+        <meta name="description" content="Ethan Glover blog" />
       </Head>
     </ContentVisibility>
   );

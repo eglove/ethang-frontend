@@ -7,6 +7,7 @@ function Error({ message }) {
     <ErrorStyles>
       <Head>
         <title>EthanG | Error!</title>
+        <meta name="description" content="Oh no! How did you get here?" />
       </Head>
       <p>{message}</p>
     </ErrorStyles>

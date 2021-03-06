@@ -9,6 +9,7 @@ function Post({ post }) {
     <BlogGrid key={post.id}>
       <Head>
         <title>EthanG | {post.title}</title>
+        <meta name="description" content={`EthanG Blog Post ${post.title}`} />
       </Head>
       <h1>{post.title}</h1>
       <Link href={post.author.url}>{post.author.name}</Link>

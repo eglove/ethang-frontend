@@ -22,6 +22,7 @@ function Portfolio() {
       ))}
       <Head>
         <title>EthanG | Portfolio</title>
+        <meta name="description" content="Ethan Glover Portfolio" />
       </Head>
     </ContentVisibility>
   );
