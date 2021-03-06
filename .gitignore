@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# eslint
+.eslintcache
+
 # Ignore due to Next.js env issues
 config.js
 
