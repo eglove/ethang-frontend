@@ -25,4 +25,8 @@ export const InternalLinkStyles = styled.ul`
 
 export const ExternalLinkStyles = styled(InternalLinkStyles)`
   float: right;
+
+  @media (max-width: 768px) {
+    float: none;
+  }
 `;
