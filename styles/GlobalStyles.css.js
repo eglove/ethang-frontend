@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
     :root {
       --backgroundColor: #23272A;
       --itemBackgroundColor: #2C2F33;
-      --fontColor: white;
+      --fontColor: black;
       --headerColor: #7289DA;
       --headerFontColor: white;
       --boxShadow: 0 3px 3px rgba(255, 255, 255, 0.2);
