@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { CourseGrid } from '../../styles/PageStyles';
+import {
+  CourseGrid,
+  GreenBackground,
+  OrangeBackground,
+  RedBackground,
+} from '../../styles/PageStyles';
+import UpdateStatus from '../UpdateStatus';
 
 function CompleteCourses({ completeCourses }) {
+  const currentYear = new Date().getFullYear();
+  console.log(currentYear);
+
   return (
     <>
       {completeCourses.map((course) => (
@@ -16,6 +25,7 @@ function CompleteCourses({ completeCourses }) {
             <a target="_blank">{course.title}</a>
           </Link>
           <p>{course.hours === '-' ? course.hours : `${course.hours}  hrs`}</p>
+          <UpdateStatus course={course} />
         </CourseGrid>
       ))}
     </>

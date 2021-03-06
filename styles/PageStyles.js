@@ -27,12 +27,29 @@ export const CourseGrid = styled.div`
   align-items: center;
   border-bottom: 1px solid var(--fontColor);
   gap: 1rem;
-  grid-template-columns: repeat(2, auto) repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto) 2fr repeat(2, 1fr);
 
   img {
     width: 25px;
     height: 25px;
   }
+`;
+
+export const UpdateStatusStyles = styled.div`
+  color: white;
+  text-align: center;
+`;
+
+export const GreenBackground = styled(UpdateStatusStyles)`
+  background: green;
+`;
+
+export const OrangeBackground = styled(UpdateStatusStyles)`
+  background: darkorange;
+`;
+
+export const RedBackground = styled(UpdateStatusStyles)`
+  background: red;
 `;
 
 export const SmallImageStyles = styled.img`

@@ -24,6 +24,7 @@ export const ALL_COURSES_QUERY = gql`
   fragment CourseData on Course {
     id
     complete
+    lastCourseUpdate
     logo {
       image {
         publicUrlTransformed(transformation: { transformation: "SanitizeSVG" })
