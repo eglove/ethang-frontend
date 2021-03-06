@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const HOME_LOGOS_QUERY = gql`
   query HOME_LOGOS_QUERY {
-    allLogos(where: { home: true }) {
+    allLogos(where: { home: true }, sortBy: [name_ASC]) {
       id
       image {
         publicUrlTransformed(transformation: { transformation: "SanitizeSVG" })
