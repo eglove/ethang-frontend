@@ -1,17 +1,9 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {
-  CourseGrid,
-  GreenBackground,
-  OrangeBackground,
-  RedBackground,
-} from '../../styles/PageStyles';
+import { CourseGrid } from '../../styles/PageStyles';
 import UpdateStatus from '../UpdateStatus';
 
 function CompleteCourses({ completeCourses }) {
-  const currentYear = new Date().getFullYear();
-  console.log(currentYear);
-
   return (
     <>
       {completeCourses.map((course) => (
