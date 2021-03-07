@@ -43,6 +43,7 @@
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-config-wesbos": "1.0.1",
+    "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-html": "6.1.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
@@ -60,6 +61,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-no-unsupported-browser-features": "^4.1.4",
     "stylelint-order": "^4.1.0",
     "stylelint-processor-styled-components": "^1.10.0"
   },
