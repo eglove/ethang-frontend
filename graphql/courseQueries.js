@@ -11,7 +11,7 @@ export const ALL_COURSES_QUERY = gql`
 
     incompleteCourses: allCourses(
       sortBy: [order_ASC]
-      where: { complete: null }
+      where: { complete_not: true }
     ) {
       ...CourseData
     }
