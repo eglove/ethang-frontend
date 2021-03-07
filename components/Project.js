@@ -7,6 +7,7 @@ import { PORTFOLIO_LOGOS_QUERY } from '../graphql/logoQueries';
 import { PortfolioGrid, SmallImageStyles } from '../styles/PageStyles';
 import Loading from './Loading';
 import Error from './Error';
+import ParseHtml from '../lib/parseHtml';
 
 function Project({ project }) {
   const { data, loading, error } = useQuery(PORTFOLIO_LOGOS_QUERY);
@@ -53,11 +54,7 @@ function Project({ project }) {
         <p>
           <Link href={`/project/${project.id}`}>Permalink</Link>
         </p>
-        {project.description?.document ? (
-          <DocumentRenderer document={project.description.document} />
-        ) : (
-          ''
-        )}
+        <ParseHtml documentObject={project.description.document} />
       </div>
       <div>
         <img

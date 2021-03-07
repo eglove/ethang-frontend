@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/client';
 import withData from '../lib/withData';
 import Page from '../components/Page';
 import '../styles/nprogress.css';
+import '../styles/styles.css';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
