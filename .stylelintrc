@@ -7,6 +7,7 @@
     "stylelint-config-prettier"
   ],
   "plugins": [
+    "stylelint-no-unsupported-browser-features",
     "stylelint-order"
   ],
   "processors": [
@@ -46,6 +47,7 @@
     "media-feature-name-no-vendor-prefix": true,
     "media-feature-colon-space-before": "never",
     "media-feature-colon-space-after": "always",
-    "declaration-block-no-duplicate-properties": true
+    "declaration-block-no-duplicate-properties": true,
+    "plugin/no-unsupported-browser-features": true
   }
 }
