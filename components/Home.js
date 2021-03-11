@@ -6,6 +6,10 @@ import { HomeLogoStyles } from '../styles/HomeLogoStyles';
 import Loading from './Loading';
 import Error from './Error';
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 function Home() {
   const { data, error, loading } = useQuery(HOME_LOGOS_QUERY);
 

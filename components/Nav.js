@@ -5,6 +5,10 @@ import {
   NavStyles,
 } from '../styles/NavStyles';
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 function Nav() {
   return (
     <NavStyles>

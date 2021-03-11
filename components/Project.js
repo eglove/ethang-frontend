@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import Link from 'next/link';
-import { DocumentRenderer } from '@keystone-next/document-renderer';
 import Head from 'next/head';
 import { PORTFOLIO_LOGOS_QUERY } from '../graphql/logoQueries';
 import { PortfolioGrid, SmallImageStyles } from '../styles/PageStyles';
 import Loading from './Loading';
 import Error from './Error';
 import ParseHtml from '../lib/parseHtml';
+
+export const config = {
+  unstable_runtimeJS: false,
+};
 
 function Project({ project }) {
   const { data, loading, error } = useQuery(PORTFOLIO_LOGOS_QUERY);

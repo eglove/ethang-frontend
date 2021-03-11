@@ -4,6 +4,10 @@ import Head from 'next/head';
 import ParseHtml from '../lib/parseHtml';
 import { BlogGrid } from '../styles/PageStyles';
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 function Post({ post }) {
   return (
     <BlogGrid key={post.id}>

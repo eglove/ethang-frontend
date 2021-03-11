@@ -8,6 +8,10 @@ import Loading from './Loading';
 import Error from './Error';
 import { CourseContainer } from '../styles/PageStyles';
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 function Course() {
   const { data, error, loading } = useQuery(ALL_COURSES_QUERY);
 

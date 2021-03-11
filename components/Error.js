@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ErrorStyles } from '../styles/PageStyles';
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 function Error({ message }) {
   return (
     <ErrorStyles>
