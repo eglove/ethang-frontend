@@ -2,10 +2,6 @@ import Loader from 'react-loader-spinner';
 import Head from 'next/head';
 import { LoaderStyles } from '../styles/LoaderStyles';
 
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function Loading() {
   return (
     <LoaderStyles>

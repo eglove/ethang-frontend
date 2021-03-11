@@ -8,10 +8,6 @@ import Loading from './Loading';
 import Error from './Error';
 import ParseHtml from '../lib/parseHtml';
 
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function Project({ project }) {
   const { data, loading, error } = useQuery(PORTFOLIO_LOGOS_QUERY);
 

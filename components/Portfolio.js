@@ -6,10 +6,6 @@ import Project from './Project';
 import Loading from './Loading';
 import Error from './Error';
 
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function Portfolio() {
   const { data, error, loading } = useQuery(PORTFOLIO_QUERY);
 

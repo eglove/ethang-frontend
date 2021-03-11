@@ -3,10 +3,6 @@ import Link from 'next/link';
 import { CourseGrid } from '../../styles/PageStyles';
 import UpdateStatus from '../UpdateStatus';
 
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function IncompleteCourses({ incompleteCourses }) {
   return (
     <>

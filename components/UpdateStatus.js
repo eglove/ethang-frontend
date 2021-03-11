@@ -5,10 +5,6 @@ import {
   RedBackground,
 } from '../styles/PageStyles';
 
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function UpdateStatus({ course }) {
   const currentYear = new Date().getFullYear();
 
