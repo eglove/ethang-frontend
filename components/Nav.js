@@ -15,8 +15,12 @@ function Nav() {
         <Link href="/recommended-courses">Recommended Courses</Link>
       </InternalLinkStyles>
       <ExternalLinkStyles>
-        <Link href="https://www.linkedin.com/in/ethan-glover/">LinkedIn</Link>
-        <Link href="https://github.com/eglove">GitHub</Link>
+        <Link href="https://www.linkedin.com/in/ethan-glover/" rel="me">
+          LinkedIn
+        </Link>
+        <Link href="https://github.com/eglove" rel="me">
+          GitHub
+        </Link>
       </ExternalLinkStyles>
     </NavStyles>
   );
