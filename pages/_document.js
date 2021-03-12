@@ -18,6 +18,14 @@ export default class MyDocument extends Document {
       <Html lang="en-CA">
         <Head>
           <meta name="monetization" content="$ilp.uphold.com/XqPZ8mnNyprk" />
+          <link
+            rel="webmention"
+            href="https://webmention.io/www.ethang.dev/webmention"
+          />
+          <link
+            rel="pingback"
+            href="https://webmention.io/www.ethang.dev/xmlrpc"
+          />
         </Head>
         <body>
           <Main />
