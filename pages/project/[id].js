@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { SINGLE_PROJECT_QUERY } from '../../graphql/portfolioQueries';
 import Project from '../../components/Project';
 import Loading from '../../components/Loading';
-import Error from '../../components/Error';
+import ErrorDisplay from '../../components/ErrorDisplay';
 
 function SingleProjectPage({ query }) {
   const { id } = query;
@@ -14,9 +14,13 @@ function SingleProjectPage({ query }) {
     },
   });
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
 
-  if (error) return <Error message={error.message} />;
+  if (error) {
+    return <ErrorDisplay message={error.message} />;
+  }
 
   const project = data.allProjects[0];
 

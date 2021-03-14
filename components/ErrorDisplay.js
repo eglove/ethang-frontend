@@ -6,7 +6,7 @@ export const config = {
   unstable_runtimeJS: false,
 };
 
-function Error({ message }) {
+function ErrorDisplay({ message }) {
   return (
     <ErrorStyles>
       <Head>
@@ -18,8 +18,8 @@ function Error({ message }) {
   );
 }
 
-export default Error;
+export default ErrorDisplay;
 
-Error.propTypes = {
+ErrorDisplay.propTypes = {
   message: PropTypes.string,
 };

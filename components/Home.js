@@ -4,7 +4,7 @@ import { MainContent } from '../styles/PageStyles';
 import { HOME_LOGOS_QUERY } from '../graphql/logoQueries';
 import { HomeLogoStyles } from '../styles/HomeLogoStyles';
 import Loading from './Loading';
-import Error from './Error';
+import ErrorDisplay from './ErrorDisplay';
 
 export const config = {
   unstable_runtimeJS: false,
@@ -13,9 +13,13 @@ export const config = {
 function Home() {
   const { data, error, loading } = useQuery(HOME_LOGOS_QUERY);
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
 
-  if (error) return <Error message={error.message} />;
+  if (error) {
+    return <ErrorDisplay message={error.message} />;
+  }
 
   const { allLogos } = data;
 

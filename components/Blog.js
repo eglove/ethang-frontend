@@ -4,7 +4,7 @@ import { BLOG_QUERY } from '../graphql/blogQueries';
 import { ContentVisibility } from '../styles/GlobalStyles.css';
 import Post from './Post';
 import Loading from './Loading';
-import Error from './Error';
+import ErrorDisplay from './ErrorDisplay';
 
 export const config = {
   unstable_runtimeJS: false,
@@ -13,9 +13,13 @@ export const config = {
 function Blog() {
   const { data, error, loading } = useQuery(BLOG_QUERY);
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
 
-  if (error) return <Error message={error.message} />;
+  if (error) {
+    return <ErrorDisplay message={error.message} />;
+  }
 
   const { allBlogs } = data;
 

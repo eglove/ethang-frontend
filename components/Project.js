@@ -5,15 +5,19 @@ import Head from 'next/head';
 import { PORTFOLIO_LOGOS_QUERY } from '../graphql/logoQueries';
 import { PortfolioGrid, SmallImageStyles } from '../styles/PageStyles';
 import Loading from './Loading';
-import Error from './Error';
+import ErrorDisplay from './ErrorDisplay';
 import ParseHtml from '../lib/parseHtml';
 
 function Project({ project }) {
   const { data, loading, error } = useQuery(PORTFOLIO_LOGOS_QUERY);
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
 
-  if (error) return <Error message={error.message} />;
+  if (error) {
+    return <ErrorDisplay message={error.message} />;
+  }
 
   const [ghLogo] = data.ghLogo;
   const [globeLogo] = data.globeLogo;

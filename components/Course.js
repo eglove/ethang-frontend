@@ -5,7 +5,7 @@ import { ContentVisibility } from '../styles/GlobalStyles.css';
 import CompleteCourses from './CoursesQueries/CompleteCourses';
 import IncompleteCourses from './CoursesQueries/IncompleteCourses';
 import Loading from './Loading';
-import Error from './Error';
+import ErrorDisplay from './ErrorDisplay';
 import { CourseContainer } from '../styles/PageStyles';
 
 export const config = {
@@ -15,9 +15,13 @@ export const config = {
 function Course() {
   const { data, error, loading } = useQuery(ALL_COURSES_QUERY);
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
 
-  if (error) return <Error message={error.message} />;
+  if (error) {
+    return <ErrorDisplay message={error.message} />;
+  }
 
   const { completeCourses, incompleteCourses } = data;
   const lastUpdate = data.lastUpdate[0].updated;

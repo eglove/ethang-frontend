@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { SINGLE_BLOG_QUERY } from '../../graphql/blogQueries';
 import Post from '../../components/Post';
 import Loading from '../../components/Loading';
-import Error from '../../components/Error';
+import ErrorDisplay from '../../components/ErrorDisplay';
 
 function SingleBlogPage({ query }) {
   const { id } = query;
@@ -14,9 +14,13 @@ function SingleBlogPage({ query }) {
     },
   });
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
 
-  if (error) return <Error message={error.message} />;
+  if (error) {
+    return <ErrorDisplay message={error.message} />;
+  }
 
   const post = data.allBlogs[0];
 

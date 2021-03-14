@@ -4,14 +4,18 @@ import { PORTFOLIO_QUERY } from '../graphql/portfolioQueries';
 import { ContentVisibility } from '../styles/GlobalStyles.css';
 import Project from './Project';
 import Loading from './Loading';
-import Error from './Error';
+import ErrorDisplay from './ErrorDisplay';
 
 function Portfolio() {
   const { data, error, loading } = useQuery(PORTFOLIO_QUERY);
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return <Loading />;
+  }
 
-  if (error) return <Error message={error.message} />;
+  if (error) {
+    return <ErrorDisplay message={error.message} />;
+  }
 
   const { allProjects } = data;
 
