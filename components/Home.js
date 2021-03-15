@@ -23,6 +23,24 @@ function Home() {
 
   const { allLogos } = data;
 
+  function randomizeLogoOrder() {
+    // Create array representing index for every logo
+    const logoIndex = new Array(allLogos.length);
+    for (let i = 0; i < logoIndex.length; i += 1) {
+      logoIndex[i] = i;
+    }
+
+    // Shuffle index array
+    for (let i = logoIndex.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * i);
+      const temp = logoIndex[i];
+      logoIndex[i] = logoIndex[j];
+      logoIndex[j] = temp;
+    }
+
+    return logoIndex;
+  }
+
   return (
     <MainContent>
       <Head>
@@ -34,11 +52,11 @@ function Home() {
       <h3>What kind of developer?</h3>
       <p>Well.. I've worked with these technologies..</p>
       <HomeLogoStyles>
-        {allLogos.map((logo) => (
+        {randomizeLogoOrder().map((lIndex) => (
           <img
-            key={logo.id}
-            src={logo.image.publicUrlTransformed}
-            alt={logo.alt}
+            key={allLogos[lIndex].id}
+            src={allLogos[lIndex].image.publicUrlTransformed}
+            alt={allLogos[lIndex].alt}
           />
         ))}
       </HomeLogoStyles>
