@@ -25,7 +25,7 @@ function Home() {
 
   function randomizeLogoOrder() {
     // Create array representing index for every logo
-    const logoIndex = new Array(allLogos.length);
+    const logoIndex = Array.from({ length: allLogos.length });
     for (let i = 0; i < logoIndex.length; i += 1) {
       logoIndex[i] = i;
     }
