@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { CourseGrid } from '../../styles/PageStyles';
+import {
+  CourseGrid,
+  InstructorStyles,
+  TextCenterParagraph,
+} from '../../styles/PageStyles';
 import UpdateStatus from '../UpdateStatus';
+
+import { topInstructors } from '../../lib/topInstructors';
 
 function IncompleteCourses({ incompleteCourses }) {
   return (
@@ -16,8 +22,14 @@ function IncompleteCourses({ incompleteCourses }) {
           <Link href={course.url}>
             <a target="_blank">{course.title}</a>
           </Link>
-          <p>{course.instructor ?? ''}</p>
-          <p>{course.hours === '-' ? course.hours : `${course.hours}  hrs`}</p>
+          <InstructorStyles
+            topInstructor={topInstructors.includes(course.instructor)}
+          >
+            {course.instructor ?? ''}
+          </InstructorStyles>
+          <TextCenterParagraph>
+            {course.hours === '-' ? course.hours : `${course.hours}  hrs`}
+          </TextCenterParagraph>
           <UpdateStatus course={course} />
         </CourseGrid>
       ))}
