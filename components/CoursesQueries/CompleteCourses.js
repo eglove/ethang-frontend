@@ -16,6 +16,7 @@ function CompleteCourses({ completeCourses }) {
           <Link href={course.url}>
             <a target="_blank">{course.title}</a>
           </Link>
+          <p>{course.instructor ?? ''}</p>
           <p>{course.hours === '-' ? course.hours : `${course.hours}  hrs`}</p>
           <UpdateStatus course={course} />
         </CourseGrid>

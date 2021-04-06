@@ -27,7 +27,7 @@ export const CourseGrid = styled.div`
   align-items: center;
   border-bottom: 1px solid var(--fontColor);
   gap: 1rem;
-  grid-template-columns: repeat(2, auto) 2fr repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto) 2fr repeat(3, 1fr);
 
   img {
     width: 25px;

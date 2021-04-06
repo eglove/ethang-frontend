@@ -1,16 +1,37 @@
-import Document, { Html, Head, NextScript, Main } from 'next/document';
+import Document, {
+  Html,
+  Head,
+  NextScript,
+  Main,
+  // eslint-disable-next-line import/no-named-default
+  default as NextDocument,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage((App) => (props) =>
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      sheet.collectStyles(<App {...props} />)
-    );
-
-    const styleTags = sheet.getStyleTags();
-    return { ...page, styleTags };
+    const originalRenderPage = ctx.renderPage;
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            sheet.collectStyles(<App {...props} />),
+        });
+      const initialProps = await NextDocument.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {

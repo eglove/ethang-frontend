@@ -12,11 +12,18 @@
     "test": "npm run test:jest --",
     "updateBrowserslist": "npx browserslist@latest --update-db"
   },
-  "browserslist": [
-    "defaults",
-    "not IE 11",
-    "maintained node versions"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@apollo/link-error": "^2.0.0-beta.3",
@@ -69,8 +76,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --cache --fix",
-      "stylelint"
+      "eslint --cache --fix"
     ]
   },
   "jest": {

@@ -41,6 +41,8 @@ type Course {
     complete: Boolean
     hours: String
     id: ID!
+    instructor: String
+    lastCourseUpdate: Int
     logo: Logo
     order: Int
     title: String
@@ -500,6 +502,10 @@ enum SortCoursesBy {
     hours_DESC
     id_ASC
     id_DESC
+    instructor_ASC
+    instructor_DESC
+    lastCourseUpdate_ASC
+    lastCourseUpdate_DESC
     logo_ASC
     logo_DESC
     order_ASC
@@ -722,6 +728,8 @@ input CloudinaryImageFormat {
 input CourseCreateInput {
     complete: Boolean
     hours: String
+    instructor: String
+    lastCourseUpdate: Int
     logo: LogoRelateToOneInput
     order: Int
     title: String
@@ -739,6 +747,8 @@ input CourseRelateToManyInput {
 input CourseUpdateInput {
     complete: Boolean
     hours: String
+    instructor: String
+    lastCourseUpdate: Int
     logo: LogoRelateToOneInput
     order: Int
     title: String
@@ -773,6 +783,32 @@ input CourseWhereInput {
     id_in: [ID]
     id_not: ID
     id_not_in: [ID]
+    instructor: String
+    instructor_contains: String
+    instructor_contains_i: String
+    instructor_ends_with: String
+    instructor_ends_with_i: String
+    instructor_i: String
+    instructor_in: [String]
+    instructor_not: String
+    instructor_not_contains: String
+    instructor_not_contains_i: String
+    instructor_not_ends_with: String
+    instructor_not_ends_with_i: String
+    instructor_not_i: String
+    instructor_not_in: [String]
+    instructor_not_starts_with: String
+    instructor_not_starts_with_i: String
+    instructor_starts_with: String
+    instructor_starts_with_i: String
+    lastCourseUpdate: Int
+    lastCourseUpdate_gt: Int
+    lastCourseUpdate_gte: Int
+    lastCourseUpdate_in: [Int]
+    lastCourseUpdate_lt: Int
+    lastCourseUpdate_lte: Int
+    lastCourseUpdate_not: Int
+    lastCourseUpdate_not_in: [Int]
     logo: LogoWhereInput
     logo_is_null: Boolean
     order: Int

@@ -31,6 +31,7 @@ export const ALL_COURSES_QUERY = gql`
       }
     }
     title
+    instructor
     url
     hours
   }
