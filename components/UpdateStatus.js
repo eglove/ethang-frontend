@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import {
+  BlackBackground,
   GreenBackground,
   OrangeBackground,
   RedBackground,
@@ -16,9 +17,12 @@ function UpdateStatus({ course }) {
       {course.lastCourseUpdate === currentYear - 1 && (
         <OrangeBackground>{course.lastCourseUpdate}</OrangeBackground>
       )}
-      {course.lastCourseUpdate < currentYear - 1 &&
-        course.lastCourseUpdate > 1 && (
-          <RedBackground>{course.lastCourseUpdate}</RedBackground>
+      {course.lastCourseUpdate === currentYear - 2 && (
+        <RedBackground>{course.lastCourseUpdate}</RedBackground>
+      )}
+      {course.lastCourseUpdate < currentYear - 2 &&
+        course.lastCourseUpdate !== 1 && (
+          <BlackBackground>course.lastCourseUpdate</BlackBackground>
         )}
       {course.lastCourseUpdate === 1 && <div>-</div>}
     </>

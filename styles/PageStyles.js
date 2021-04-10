@@ -44,6 +44,12 @@ export const TextCenterParagraph = styled.p`
   text-align: center;
 `;
 
+export const TotalHoursStyles = styled.div`
+  text-align: right;
+  margin-top: 1rem;
+  font-weight: bold;
+`;
+
 export const UpdateStatusStyles = styled.div`
   color: white;
   text-align: center;
@@ -59,6 +65,10 @@ export const OrangeBackground = styled(UpdateStatusStyles)`
 
 export const RedBackground = styled(UpdateStatusStyles)`
   background: red;
+`;
+
+export const BlackBackground = styled.div`
+  background: black;
 `;
 
 export const SmallImageStyles = styled.img`

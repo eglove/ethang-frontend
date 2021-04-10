@@ -4,11 +4,17 @@ import {
   CourseGrid,
   InstructorStyles,
   TextCenterParagraph,
+  TotalHoursStyles,
 } from '../../styles/PageStyles';
 import UpdateStatus from '../UpdateStatus';
 import { topInstructors } from '../../lib/topInstructors';
 
 function CompleteCourses({ completeCourses }) {
+  let totalHours = 0;
+  completeCourses.forEach((course) => {
+    totalHours += parseFloat(course.hours);
+  });
+
   return (
     <>
       {completeCourses.map((course) => (
@@ -32,6 +38,7 @@ function CompleteCourses({ completeCourses }) {
           <UpdateStatus course={course} />
         </CourseGrid>
       ))}
+      <TotalHoursStyles>Total Hours: {totalHours}</TotalHoursStyles>
     </>
   );
 }
