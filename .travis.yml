@@ -17,5 +17,7 @@ deploy:
   bucket_path: "ethang-frontend"
   on:
     branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 
 language: generic
