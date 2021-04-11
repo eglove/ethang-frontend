@@ -6,6 +6,7 @@
     "dev": "next dev -p 7000",
     "build": "next build",
     "start": "next start -p $PORT",
+    "start-aws": "next start -p 7000",
     "test:jest": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
