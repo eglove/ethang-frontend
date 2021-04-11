@@ -4,8 +4,6 @@ COPY package.json .
 RUN yarn
 COPY . .
 RUN yarn build
-
-FROM nginx
-EXPOSE 7000 80
+EXPOSE 7000
 USER node
 CMD ["yarn", "start"]
