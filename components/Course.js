@@ -2,11 +2,10 @@ import { useQuery } from '@apollo/client';
 import Head from 'next/head';
 import { ALL_COURSES_QUERY } from '../graphql/courseQueries';
 import { ContentVisibility } from '../styles/GlobalStyles.css';
-import CompleteCourses from './CoursesQueries/CompleteCourses';
-import IncompleteCourses from './CoursesQueries/IncompleteCourses';
 import Loading from './Loading';
 import ErrorDisplay from './ErrorDisplay';
 import { CourseContainer } from '../styles/PageStyles';
+import CourseList from './CourseList';
 
 export const config = {
   unstable_runtimeJS: false,
@@ -35,9 +34,9 @@ function Course() {
       <CourseContainer>
         <h1>Recommended Courses</h1>
         <p>Last Update: {new Date(lastUpdate).toDateString()}</p>
-        <CompleteCourses completeCourses={completeCourses} />
+        <CourseList courses={completeCourses} complete />
         <h2>Courses I'm Looking At</h2>
-        <IncompleteCourses incompleteCourses={incompleteCourses} />
+        <CourseList courses={incompleteCourses} complete={false} />
       </CourseContainer>
     </ContentVisibility>
   );

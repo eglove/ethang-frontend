@@ -50,25 +50,11 @@ export const TotalHoursStyles = styled.div`
   font-weight: bold;
 `;
 
-export const UpdateStatusStyles = styled.div`
+export const CourseUpdatedStyles = styled.div`
   color: white;
   text-align: center;
-`;
-
-export const GreenBackground = styled(UpdateStatusStyles)`
-  background: green;
-`;
-
-export const OrangeBackground = styled(UpdateStatusStyles)`
-  background: darkorange;
-`;
-
-export const RedBackground = styled(UpdateStatusStyles)`
-  background: red;
-`;
-
-export const BlackBackground = styled.div`
-  background: black;
+  background: ${({ color }) => color};
+  display: ${({ color }) => (color === 'none' ? 'none' : '')};
 `;
 
 export const SmallImageStyles = styled.img`

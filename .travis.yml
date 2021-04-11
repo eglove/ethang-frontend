@@ -8,4 +8,14 @@ before_install:
 script:
   - docker run -e CI=true eglove/ethang-frontend yarn test
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "ethang-frontend"
+  env: "Ethangfrontend-env"
+  bucket_name: "elasticbeanstalk-us-east-1-492621573460"
+  bucket_path: "ethang-frontend"
+  on:
+    branch: main
+
 language: generic

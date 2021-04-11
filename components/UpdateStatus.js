@@ -1,31 +1,27 @@
 import PropTypes from 'prop-types';
-import {
-  BlackBackground,
-  GreenBackground,
-  OrangeBackground,
-  RedBackground,
-} from '../styles/PageStyles';
+import { CourseUpdatedStyles } from '../styles/PageStyles';
 
 function UpdateStatus({ course }) {
   const currentYear = new Date().getFullYear();
+  const updated = course.lastCourseUpdate;
+  let backgroundColor;
+
+  if (updated === currentYear) {
+    backgroundColor = 'green';
+  } else if (updated === currentYear - 1) {
+    backgroundColor = 'darkorange';
+  } else if (updated === currentYear - 2) {
+    backgroundColor = 'red';
+  } else if (updated === 1) {
+    backgroundColor = 'none';
+  } else {
+    backgroundColor = 'black';
+  }
 
   return (
-    <>
-      {course.lastCourseUpdate === currentYear && (
-        <GreenBackground>{course.lastCourseUpdate}</GreenBackground>
-      )}
-      {course.lastCourseUpdate === currentYear - 1 && (
-        <OrangeBackground>{course.lastCourseUpdate}</OrangeBackground>
-      )}
-      {course.lastCourseUpdate === currentYear - 2 && (
-        <RedBackground>{course.lastCourseUpdate}</RedBackground>
-      )}
-      {course.lastCourseUpdate < currentYear - 2 &&
-        course.lastCourseUpdate !== 1 && (
-          <BlackBackground>course.lastCourseUpdate</BlackBackground>
-        )}
-      {course.lastCourseUpdate === 1 && <div>-</div>}
-    </>
+    <CourseUpdatedStyles color={backgroundColor}>
+      {course.lastCourseUpdate}
+    </CourseUpdatedStyles>
   );
 }
 

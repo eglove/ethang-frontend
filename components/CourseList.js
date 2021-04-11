@@ -1,20 +1,27 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import UpdateStatus from './UpdateStatus';
 import {
   CourseGrid,
   InstructorStyles,
   TextCenterParagraph,
-} from '../../styles/PageStyles';
-import UpdateStatus from '../UpdateStatus';
+  TotalHoursStyles,
+} from '../styles/PageStyles';
+import { topInstructors } from '../lib/topInstructors';
 
-import { topInstructors } from '../../lib/topInstructors';
+function CourseList({ courses, complete }) {
+  let totalHours = 0;
+  courses.forEach((course) => {
+    if (parseFloat(course.hours)) {
+      totalHours += parseFloat(course.hours);
+    }
+  });
 
-function IncompleteCourses({ incompleteCourses }) {
   return (
     <>
-      {incompleteCourses.map((course) => (
+      {courses.map((course) => (
         <CourseGrid key={course.id}>
-          <p>⬜</p>
+          <p>{complete ? `✅` : `⬜`}</p>
           <img
             src={course.logo.image.publicUrlTransformed}
             alt={course.logo.alt}
@@ -33,12 +40,14 @@ function IncompleteCourses({ incompleteCourses }) {
           <UpdateStatus course={course} />
         </CourseGrid>
       ))}
+      <TotalHoursStyles>Total Hours: {totalHours}</TotalHoursStyles>
     </>
   );
 }
 
-export default IncompleteCourses;
+export default CourseList;
 
-IncompleteCourses.propTypes = {
-  incompleteCourses: PropTypes.array,
+CourseList.propTypes = {
+  courses: PropTypes.array,
+  complete: PropTypes.bool,
 };
