@@ -1,13 +1,13 @@
 {
   "name": "ethang-frontend",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 7000",
     "build": "next build",
     "start": "next start -p $PORT",
     "test:jest": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "test": "npm run test:jest --",
     "updateBrowserslist": "npx browserslist@latest --update-db"
