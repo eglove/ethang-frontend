@@ -8,9 +8,16 @@ before_install:
 script:
   - docker run -e CI=true eglove/ethang-frontend yarn test
 
-after_success:
-  - docker build -t eglove/ethang-frontend .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push eglove/ethang-frontend
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "ethang-frontend"
+  env: "Ethangfrontend-env"
+  bucket_name: "elasticbeanstalk-us-east-1-492621573460"
+  bucket_path: "ethang-frontend"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 
 language: generic
