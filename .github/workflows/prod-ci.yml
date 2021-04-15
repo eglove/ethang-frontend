@@ -10,7 +10,6 @@ on:
 
 jobs:
   test:
-    needs: [ browsersUpdate ]
     name: Node Tests
     runs-on: ubuntu-latest
 
