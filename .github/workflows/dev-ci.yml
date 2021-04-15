@@ -2,9 +2,7 @@ name: "EthanG CI"
 
 on:
   push:
-    branches: [ main, workflow ]
-  pull_request:
-    branches: [ main, workflow ]
+    branches: [ develop ]
   schedule:
     - cron: '43 21 * * 3'
 
