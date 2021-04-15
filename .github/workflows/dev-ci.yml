@@ -17,7 +17,7 @@ jobs:
         run: |
           git config --global user.name 'eglove'
           git config --global user.email 'eglove@users.noreply.github.com'
-          git commit -am 'Browsers Update'
+          if ${{ git commit -am 'Browsers Update' }}
           git push
 
   test:
