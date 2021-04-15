@@ -14,6 +14,7 @@ jobs:
       - name: Update Browsers List
         run: npx browserslist@latest --update-db
       - name: Commit Changes
+        continue-on-error: true
         run: |
           git config --global user.name 'eglove'
           git config --global user.email 'eglove@users.noreply.github.com'
