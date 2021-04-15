@@ -41,7 +41,7 @@ jobs:
       - run: yarn test
 
   analyze:
-    needs: [ test ]
+    needs: [ browsersUpdate ]
     name: Security Analysis
     runs-on: ubuntu-latest
 

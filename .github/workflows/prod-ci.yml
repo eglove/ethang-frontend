@@ -28,7 +28,6 @@ jobs:
       - run: yarn test
 
   analyze:
-    needs: [ test ]
     name: Security Analysis
     runs-on: ubuntu-latest
 
