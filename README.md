@@ -6,6 +6,4 @@ New Deployment in Progress...
 </h1>
 </del>
 
-Frontend built with React and Next.js
-
-Backend built with Keystone.js and GraphQL
+[![EthanG Dev CI](https://github.com/eglove/ethang-frontend/actions/workflows/dev-ci.yml/badge.svg?branch=develop)](https://github.com/eglove/ethang-frontend/actions/workflows/dev-ci.yml)
