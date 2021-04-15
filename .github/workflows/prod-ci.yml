@@ -1,27 +1,14 @@
-name: "EthanG CI"
+name: "EthanG Prod CI"
 
 on:
   push:
-    branches: [ main, workflow ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, workflow ]
+    branches: [ main ]
   schedule:
     - cron: '43 21 * * 3'
 
 jobs:
-  browsersUpdate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Update Browsers List
-        run: npx browserslist@latest --update-db
-      - name: Commit Changes
-        run: |
-          git config --global user.name 'eglove'
-          git config --global user.email 'eglove@users.noreply.github.com'
-          git commit -am 'Browsers Update'
-          git push
-
   test:
     needs: [ browsersUpdate ]
     name: Node Tests
@@ -29,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [ 10.x, 12.x, 14.x, 15.x ]
 
     steps:
       - uses: actions/checkout@v2
