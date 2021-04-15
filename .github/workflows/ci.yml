@@ -10,7 +10,6 @@ on:
 
 jobs:
   browsersUpdate:
-    needs: [ analyze ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -43,6 +42,7 @@ jobs:
       - run: yarn test
 
   analyze:
+    needs: [ test ]
     name: Security Analysis
     runs-on: ubuntu-latest
 
