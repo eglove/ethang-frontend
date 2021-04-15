@@ -2,9 +2,9 @@ name: "EthanG CI"
 
 on:
   push:
-    branches: [ main ]
+    branches: [ * ]
   pull_request:
-    branches: [ main ]
+    branches: [ * ]
   schedule:
     - cron: '43 21 * * 3'
 
