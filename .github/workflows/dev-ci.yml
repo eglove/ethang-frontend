@@ -8,6 +8,7 @@ on:
 
 jobs:
   browsersUpdate:
+    name: Browsers Update
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -88,7 +89,7 @@ jobs:
 
   mainMerge:
     name: Merge to Main
-    needs: [ test, analyze ]
+    needs: [ dockerPush ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
