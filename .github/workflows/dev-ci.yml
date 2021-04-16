@@ -87,8 +87,12 @@ jobs:
           tags: eglove/ethang-frontend:latest
 
   mainMerge:
-    needs: [ dockerPush ]
+    name: Merge to Main
+    needs: [ test, analyze ]
     runs-on: ubuntu-latest
     steps:
       - name: Merge to Main
         uses: ridedott/merge-me-action@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRESET: DEPENDABOT_MINOR
