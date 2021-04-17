@@ -92,12 +92,6 @@ jobs:
           images: |
             eglove/ethang-frontend
           tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{pattern}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
             type=sha
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v1
@@ -115,7 +109,6 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
 
   mainMerge:
     name: Merge to Main
