@@ -1,15 +1,9 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import UpdateStatus from './UpdateStatus';
-import {
-  CourseGrid,
-  InstructorStyles,
-  TextCenterParagraph,
-  TotalHoursStyles,
-} from '../styles/PageStyles';
-import { topInstructors } from '../lib/topInstructors';
+import { CourseGrid, TotalHoursStyles } from '../styles/PageStyles';
 
-function CourseList({ courses, complete }) {
+function CourseList({ courses }) {
   let totalHours = 0;
   courses.forEach((course) => {
     if (parseFloat(course.hours)) {
@@ -29,14 +23,8 @@ function CourseList({ courses, complete }) {
           <Link href={course.url}>
             <a target="_blank">{course.title}</a>
           </Link>
-          <InstructorStyles
-            topInstructor={topInstructors.includes(course.instructor)}
-          >
-            {course.instructor ?? ''}
-          </InstructorStyles>
-          <TextCenterParagraph>
-            {course.hours === '-' ? course.hours : `${course.hours}  hrs`}
-          </TextCenterParagraph>
+          <p>{course.instructor ?? ''}</p>
+          <p>{course.hours === '-' ? course.hours : `${course.hours}  hrs`}</p>
           <UpdateStatus course={course} />
         </CourseGrid>
       ))}
@@ -49,5 +37,4 @@ export default CourseList;
 
 CourseList.propTypes = {
   courses: PropTypes.array,
-  complete: PropTypes.bool,
 };

@@ -22,11 +22,6 @@ export const CourseContainer = styled(MainContent)`
   place-items: unset;
 `;
 
-export const InstructorStyles = styled.p`
-  text-align: center;
-  background: ${(props) => (props.topInstructor ? '#9be9a8' : '')};
-`;
-
 export const CourseGrid = styled.div`
   display: grid;
   align-items: center;
