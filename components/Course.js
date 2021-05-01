@@ -22,7 +22,7 @@ function Course() {
     return <ErrorDisplay message={error.message} />;
   }
 
-  const { completeCourses, incompleteCourses } = data;
+  const { courses } = data;
   const lastUpdate = data.lastUpdate[0].updated;
 
   return (
@@ -34,9 +34,7 @@ function Course() {
       <CourseContainer>
         <h1>Recommended Courses</h1>
         <p>Last Update: {new Date(lastUpdate).toDateString()}</p>
-        <CourseList courses={completeCourses} complete />
-        <h2>Courses I'm Looking At</h2>
-        <CourseList courses={incompleteCourses} complete={false} />
+        <CourseList courses={courses} />
       </CourseContainer>
     </ContentVisibility>
   );

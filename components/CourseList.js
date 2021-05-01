@@ -21,7 +21,7 @@ function CourseList({ courses, complete }) {
     <>
       {courses.map((course) => (
         <CourseGrid key={course.id}>
-          <p>{complete ? `✅` : `⬜`}</p>
+          <p>{course.complete ? `✅` : `⬜`}</p>
           <img
             src={course.logo.image.publicUrlTransformed}
             alt={course.logo.alt}
