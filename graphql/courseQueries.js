@@ -2,17 +2,7 @@ import { gql } from '@apollo/client';
 
 export const ALL_COURSES_QUERY = gql`
   query All_COURSES_QUERY {
-    completeCourses: allCourses(
-      sortBy: [order_ASC]
-      where: { complete: true }
-    ) {
-      ...CourseData
-    }
-
-    incompleteCourses: allCourses(
-      sortBy: [order_ASC]
-      where: { complete_not: true }
-    ) {
+    courses: allCourses(sortBy: [order_ASC]) {
       ...CourseData
     }
 
