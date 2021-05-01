@@ -12,7 +12,7 @@ function Nav() {
         <Link href="/">Home</Link>
         <Link href="/portfolio">Portfolio</Link>
         <Link href="/blog">Blog</Link>
-        <Link href="/recommended-courses">Recommended Courses</Link>
+        <Link href="/courses">Recommended Courses</Link>
       </InternalLinkStyles>
       <ExternalLinkStyles>
         <Link href="https://www.linkedin.com/in/ethan-glover/">
