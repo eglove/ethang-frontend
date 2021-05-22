@@ -3,8 +3,6 @@ name: "EthanG Dev CI"
 on:
   push:
     branches: [ develop ]
-  schedule:
-    - cron: '43 21 * * 3'
 
 jobs:
   browsersUpdate:
